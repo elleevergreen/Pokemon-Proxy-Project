@@ -3091,18 +3091,53 @@
   Copy HTML
  </button>
 
-  <script src="Cards.js"></script>
-  
-  <script>
+<script src="Cards.js"></script>
+
+<script>
+function positionCustomNames() {
+  const headers = document.querySelectorAll('.cardHeader');
+
+  headers.forEach(header => {
+    const name = header.querySelector(':scope > .cardCustomName');
+    const cost = header.querySelector(':scope > .cardCost');
+
+    if (!name) return;
+
+    header.style.position = 'relative';
+
+    name.style.position = 'absolute';
+    name.style.width = 'max-content';
+    name.style.maxWidth = 'calc(100% - 2mm)';
+    name.style.left = '50%';
+    name.style.transform = 'translateX(-50%)';
+    name.style.flexGrow = '0';
+    name.style.whiteSpace = 'nowrap';
+
+    if (!cost || cost.children.length === 0) return;
+
+    cost.style.position = 'absolute';
+    cost.style.right = '0';
+
+    const headerRect = header.getBoundingClientRect();
+    const nameRect = name.getBoundingClientRect();
+    const costRect = cost.getBoundingClientRect();
+
+    const gap = 2;
+    const overlap = nameRect.right - (costRect.left - gap);
+
+    if (overlap > 0) {
+      const centeredLeft = headerRect.width / 2;
+      name.style.left = `${centeredLeft - overlap}px`;
+    }
+  });
+}
+
 function buildPrintPages() {
-  // Remove an old print layout if one exists
   document.querySelector('.print-container')?.remove();
 
   const container = document.createElement('div');
   container.className = 'print-container';
 
-  // Grab all cards in their existing order.
-  // cloneNode(true) means the normal webpage stays untouched.
   const cards = [...document.querySelectorAll('.card:not(.noprint)')];
 
   for (let i = 0; i < cards.length; i += 9) {
@@ -3119,8 +3154,16 @@ function buildPrintPages() {
   document.body.appendChild(container);
 }
 
-buildPrintPages();
+document.fonts.ready.then(() => {
+  positionCustomNames();
+  buildPrintPages();
+});
+
+window.addEventListener('resize', positionCustomNames);
 </script>
+
+</body>
+</html>
 
 </body>
 </html>

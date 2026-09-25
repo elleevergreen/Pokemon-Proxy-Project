@@ -1,4 +1,4 @@
-name: Test Print Page Capture
+name: Cards to PDF
 
 on:
   workflow_dispatch:

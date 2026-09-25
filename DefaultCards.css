@@ -412,6 +412,10 @@ p {
   margin-bottom: 1mm;
 }
 
+.cardStats {
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png") !important;
+}
+
 /* ROOM */
 
 .card.room {

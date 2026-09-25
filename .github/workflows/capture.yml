@@ -23,7 +23,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Capture first print page
-        run: npm run capture-test
+        run: npm run capture
 
       - name: Upload proxy export
         uses: actions/upload-artifact@v4

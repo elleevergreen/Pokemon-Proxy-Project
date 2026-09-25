@@ -21,12 +21,10 @@ const { chromium } = require("playwright");
     }
   );
 
-  // Wait for web fonts.
   await page.evaluate(async () => {
     await document.fonts.ready;
   });
 
-  // Give externally hosted artwork/textures a little extra time.
   await page.waitForTimeout(5000);
 
   const printPages = page.locator(".print-page");
@@ -38,7 +36,34 @@ const { chromium } = require("playwright");
     throw new Error("No .print-page elements were found.");
   }
 
+  /*
+   * Export-only override.
+   *
+   * This does NOT modify the website. It exists only inside
+   * Playwright's temporary browser session.
+   */
+  await page.addStyleTag({
+    content: `
+      .print-container {
+        display: block !important;
+        visibility: visible !important;
+      }
+
+      .print-page {
+        display: grid !important;
+        visibility: visible !important;
+      }
+    `
+  });
+
   const firstPage = printPages.first();
+
+  await firstPage.waitFor({
+    state: "visible",
+    timeout: 10000
+  });
+
+  console.log("First print page is visible.");
 
   await firstPage.screenshot({
     path: "test-page.png",

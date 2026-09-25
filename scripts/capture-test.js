@@ -93,4 +93,94 @@ const { chromium } = require("playwright");
         (PAGE_WIDTH - CARD_WIDTH * 3) / 2;
 
       const verticalMargin =
-        (PAGE_HEIGHT - CARD_HEIGHT * 3) /
+        (PAGE_HEIGHT - CARD_HEIGHT * 3) / 2;
+
+      for (let i = 0; i < originalCards.length; i += 9) {
+        const exportPage = document.createElement("div");
+        exportPage.className = "export-page";
+
+        Object.assign(exportPage.style, {
+          position: "relative",
+          width: `${PAGE_WIDTH}px`,
+          height: `${PAGE_HEIGHT}px`,
+          background: "white",
+          overflow: "hidden"
+        });
+
+        originalCards.slice(i, i + 9).forEach((card, index) => {
+          const clone = card.cloneNode(true);
+
+          const column = index % 3;
+          const row = Math.floor(index / 3);
+
+          const slot = document.createElement("div");
+
+          Object.assign(slot.style, {
+            position: "absolute",
+            left: `${horizontalMargin + column * CARD_WIDTH}px`,
+            top: `${verticalMargin + row * CARD_HEIGHT}px`,
+            width: `${CARD_WIDTH}px`,
+            height: `${CARD_HEIGHT}px`,
+            overflow: "hidden"
+          });
+
+          Object.assign(clone.style, {
+            display: "block",
+            position: "absolute",
+            left: "0",
+            top: "0",
+            margin: "0",
+            transformOrigin: "top left",
+            transform: `scale(${scaleX}, ${scaleY})`
+          });
+
+          slot.appendChild(clone);
+          exportPage.appendChild(slot);
+        });
+
+        exportRoot.appendChild(exportPage);
+      }
+
+      document.documentElement.style.margin = "0";
+      document.documentElement.style.padding = "0";
+
+      document.body.style.margin = "0";
+      document.body.style.padding = "0";
+      document.body.style.background = "white";
+
+      return {
+        cards: originalCards.length,
+        pages: Math.ceil(originalCards.length / 9)
+      };
+    },
+    {
+      PAGE_WIDTH,
+      PAGE_HEIGHT,
+      CARD_WIDTH,
+      CARD_HEIGHT
+    }
+  );
+
+  console.log(
+    `Built ${result.pages} export pages from ${result.cards} cards.`
+  );
+
+  const exportPages = page.locator(".export-page");
+  const pageCount = await exportPages.count();
+
+  for (let i = 0; i < pageCount; i++) {
+    const filename =
+      `page-${String(i + 1).padStart(2, "0")}.png`;
+
+    console.log(`Capturing ${filename}...`);
+
+    await exportPages.nth(i).screenshot({
+      path: filename,
+      animations: "disabled"
+    });
+  }
+
+  console.log(`Finished ${pageCount} pages.`);
+
+  await browser.close();
+})();

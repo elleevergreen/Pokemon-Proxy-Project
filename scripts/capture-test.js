@@ -56,19 +56,29 @@ const { chromium } = require("playwright");
     `
   });
 
-  const firstPage = printPages.first();
+  // Find the print page containing Villain's Journey
+const targetPage = page
+  .locator(".print-page")
+  .filter({ hasText: "Villain's Journey" })
+  .first();
 
-  await firstPage.waitFor({
-    state: "visible",
-    timeout: 10000
-  });
+const targetCount = await targetPage.count();
 
-  console.log("First print page is visible.");
+if (targetCount === 0) {
+  throw new Error("Could not find the print page containing Villain's Journey.");
+}
 
-  await firstPage.screenshot({
-    path: "test-page.png",
-    animations: "disabled"
-  });
+await targetPage.waitFor({
+  state: "visible",
+  timeout: 10000
+});
+
+console.log("Found the print page containing Villain's Journey.");
+
+await targetPage.screenshot({
+  path: "test-page.png",
+  animations: "disabled"
+});
 
   console.log("Saved test-page.png");
 

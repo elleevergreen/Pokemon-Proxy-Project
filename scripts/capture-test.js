@@ -1,4 +1,6 @@
 const { chromium } = require("playwright");
+const { PDFDocument } = require("pdf-lib");
+const fs = require("fs");
 
 (async () => {
   const browser = await chromium.launch();
@@ -180,7 +182,57 @@ const { chromium } = require("playwright");
     });
   }
 
-  console.log(`Finished ${pageCount} pages.`);
+  console.log(`Finished ${pageCount} PNG pages.`);
 
-  await browser.close();
+await browser.close();
+
+/*
+ * Build the final multipage PDF.
+ *
+ * PDF coordinates use points:
+ * 72 points = 1 inch.
+ *
+ * US Letter:
+ * 8.5 × 11 inches
+ * = 612 × 792 points
+ */
+console.log("Building final PDF...");
+
+const pdf = await PDFDocument.create();
+
+const LETTER_WIDTH = 612;
+const LETTER_HEIGHT = 792;
+
+for (let i = 0; i < pageCount; i++) {
+  const filename =
+    `page-${String(i + 1).padStart(2, "0")}.png`;
+
+  console.log(`Adding ${filename} to PDF...`);
+
+  const pngBytes = fs.readFileSync(filename);
+  const png = await pdf.embedPng(pngBytes);
+
+  const pdfPage = pdf.addPage([
+    LETTER_WIDTH,
+    LETTER_HEIGHT
+  ]);
+
+  pdfPage.drawImage(png, {
+    x: 0,
+    y: 0,
+    width: LETTER_WIDTH,
+    height: LETTER_HEIGHT
+  });
+}
+
+const pdfBytes = await pdf.save();
+
+fs.writeFileSync(
+  "Pokemon-Proxy-Project.pdf",
+  pdfBytes
+);
+
+console.log(
+  `Saved Pokemon-Proxy-Project.pdf with ${pageCount} pages.`
+);
 })();

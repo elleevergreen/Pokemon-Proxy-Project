@@ -43,8 +43,8 @@ const { chromium } = require("playwright");
   const result = await page.evaluate(
     ({ PAGE_WIDTH, PAGE_HEIGHT, CARD_WIDTH, CARD_HEIGHT }) => {
       const originalCards = [
-        ...document.querySelectorAll(".card:not(.noprint)")
-      ];
+  ...document.querySelectorAll(".card:not(.noprint)")
+].filter(card => !card.closest(".print-container"));
 
       if (!originalCards.length) {
         throw new Error("No printable cards found.");

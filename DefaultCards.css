@@ -1,0 +1,1283 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Pixel:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: auto;
+  width: 8.5in;
+  font-size: 12px;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.card {overflow: visible!important;}
+
+.prefix {font-size: 50%}
+
+/* CARD EDITOR */
+
+#cardEditor {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  width: 63mm!important;
+  height: 88mm;
+  
+
+  padding: 4mm;
+  background: rgba(0, 0, 0, .7);
+}
+
+.saga #cardEditor,
+.room #cardEditor {
+  width: 63mm!important;
+  transform-origin: top right;
+  transform: rotate(90deg)!important;
+  left: 25mm!important;
+  top: 63mm!important;
+}
+
+#cardEditor.open {
+  display: block;
+}
+
+#cardEditor label {
+  display: block;
+  margin-bottom: 0mm;
+  font-size: .2rem;
+  color:#fff;
+}
+
+#cardEditor input,
+#cardEditor textarea {
+  width: 100%;
+}
+
+#cardEditor button {
+  margin-top: 2mm;
+}
+
+/* TYPOGRAPHY */
+
+.cardCustomName {
+  font-family: "Geist Pixel", sans-serif;
+  font-weight: 600;
+}
+
+.cardStats {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.cardRealName,
+.cardTypes,
+.cardText,
+.cardAdventureText,
+.cardSagaChapterAbility,
+.cardPlaneswalkerAbility {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.cardCustomName {
+  font-size: 1rem;
+  line-height: 3.5mm;
+}
+
+.cardRealName {
+  font-size: .5rem;
+  line-height: 2.5mm;
+}
+
+.cardCost {
+  line-height: 0em;
+}
+
+.cardTypes {
+  font-size: .75rem;
+  line-height: 3mm;
+}
+
+.cardText,
+.cardAdventureText,
+.cardAdventureCost,
+.cardSagaChapterAbility,
+.cardPlaneswalkerAbility{
+  font-size: .75rem;
+  line-height: .85rem;
+}
+
+.cardAdventureCustomName {
+  font-size: .8rem;
+  line-height: 1mm;
+}
+
+.cardAdventureName {
+  font-size: .5rem;
+}
+
+.cardAdventureTypes {
+  font-size: .6rem;
+}
+
+.loyaltyCost {
+  font-size: .8rem;
+  line-height: 100%;
+}
+
+.creature .cardStats {
+  font-size: 3mm;
+  line-height: 4mm;
+}
+
+
+/* MANA */
+
+.mana {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: -0.12em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: -.05rem;
+  filter: drop-shadow(-0.03rem 0.09rem 0 rgba(0, 0, 0, 0.7));
+}
+
+.cardText .mana,
+.cardAdventureCost .mana,
+.cardSagaChapterAbility .mana {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.22em;
+  margin: 0.02em;
+  filter: none;
+}
+
+.cardCustomNameEnergy {
+    font-family: "Russo One", sans-serif;
+    font-size: 2.5em;
+    letter-spacing: .15mm;
+    line-height: 1;
+}
+
+.mana-X {
+  background-image: url("https://i.imgur.com/sarSNiu.png");
+}
+
+.mana-0 {
+  background-image: url("https://i.imgur.com/YUk8dOl.png");
+}
+
+.mana-1 {
+  background-image: url("https://i.imgur.com/7R3dF09.png");
+}
+
+.mana-2 {
+  background-image: url("https://i.imgur.com/iGgbpY1.png");
+}
+
+.mana-3 {
+  background-image: url("https://i.imgur.com/BbpaWL8.png");
+}
+
+.mana-4 {
+  background-image: url("https://i.imgur.com/tRa3fx2.png");
+}
+
+.mana-5 {
+  background-image: url("https://i.imgur.com/lUMFQOT.png");
+}
+
+.mana-6 {
+  background-image: url("https://i.imgur.com/8vvSc8D.png");
+}
+
+.mana-7 {
+  background-image: url("https://i.imgur.com/qqaI1h9.png");
+}
+
+.mana-8 {
+  background-image: url("https://i.imgur.com/xpFGSXe.png");
+}
+
+.mana-9 {
+  background-image: url("https://i.imgur.com/acEdcia.png");
+}
+
+
+
+.mana-W {
+  background-image: url("https://i.imgur.com/RvrJy87.png");
+}
+
+.mana-W-B {
+  background-image: url("https://i.imgur.com/u35uQiM.png");
+}
+
+.mana-W-P {
+  background-image: url("https://i.imgur.com/pWNdta4.png");
+}
+
+.mana-U {
+  background-image: url("https://i.imgur.com/2UmBUxi.png");
+}
+
+.mana-U-B {
+  background-image: url("https://i.imgur.com/Y2d4Qwz.png");
+}
+
+.mana-U-P {
+  background-image: url("https://i.imgur.com/B57uzsA.png");
+}
+
+.mana-B {
+  background-image: url("https://i.imgur.com/zbOeFL5.png");
+}
+
+.mana-C {
+  background-image: url("https://i.imgur.com/kERAEHN.png");
+}
+
+.mana-T {
+  background-image: url("https://i.imgur.com/6YAxyDX.png");
+}
+
+
+/* BINDER */
+
+.binder {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+}
+
+
+/* CARD */
+
+.card {
+  display: block;
+  position: relative;
+  height: 88mm;
+  width: 63mm;
+  background-color: #000;
+  isolation: isolate;
+}
+
+.cardImage {
+  z-index: -2;
+}
+
+/* HEADER */
+
+.cardHeader {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 6mm;
+  width: calc(100% - 4mm);
+  margin: 2mm auto 0 auto;
+  padding: 1mm 1mm 0 1mm;
+  border-top-left-radius: 3mm;
+  border-top-right-radius: 3mm;
+  background-position: 0 0;
+}
+
+.cardRealName {
+  display: flex;
+  width: calc(100% - 4mm);
+  height: 3.5mm;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: .5mm 1mm 1mm 1mm;
+  margin-top: -0mm;
+  background-position: 0 -6mm, 0 0;
+  background-repeat: repeat, no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, black 50%, transparent 100%);
+  mask-image: linear-gradient(180deg, black 50%, transparent 100%);
+}
+
+.cardWrap {
+  display: flex;
+}
+
+.cardCustomName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.5mm;
+  width: 60%;
+  background-color: transparent;
+  flex-grow: 2;
+}
+
+.cardCost {
+  display: flex;
+  justify-content: flex-end;
+  height: 7.5mm;
+  width: fit-content;
+  padding-right: 1mm;
+  padding-left: 1mm;
+  background-color: transparent;
+  right: 0;
+}
+
+
+/* TEXT BOX */
+
+.cardTextBox {
+  display: block;
+  position: absolute;
+  width: calc(100% - 4mm);
+  margin: 0;
+  top: auto;
+  bottom: 0mm;
+  left: 2mm;
+  right: auto;
+  padding-top: 1mm;
+  padding-bottom: 0mm;
+  padding-right: 1mm;
+  padding-left: 1mm;
+  border-top-left-radius: 3mm;
+  border-top-right-radius: 3mm;
+  border-bottom-left-radius: 15mm 15mm;
+  border-bottom-right-radius: 15mm 15mm;
+}
+
+.cardTypes {
+  display: block;
+  height: 3.5mm;
+  width: 100%;
+  background-color: transparent;
+  text-align: center;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 36mm;
+  min-height: 15mm;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.5mm;
+  padding-left: 1mm;
+  padding-right: 1mm;
+  text-align: center;
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png") !important;
+}
+
+.cardText.left {
+  display: flex;
+  width: 50%;
+  margin-left: 0;
+}
+
+.cardText.right {
+  display: flex;
+  width: 50%;
+  margin-right: 0;
+}
+
+.cardText p {
+  margin-bottom: 1mm;
+}
+
+/* ROOM */
+
+.card.room {
+  height: 63mm;
+  width: 88mm;
+  transform-origin: top left;
+  transform: rotate(270deg);
+  top: 88mm;
+  margin-right: -25mm;
+}
+
+.room .cardImage {
+  position: absolute;
+  height: calc(100% - 15mm)!important;
+  width: 100%;
+  background-color: #333;
+  border-bottom-left-radius: 12mm 12mm;
+  border-bottom-right-radius: 12mm 12mm;
+}
+
+.card.room .cardHeader.left,
+.card.room .cardRealName.left {
+  width: calc(50% - 3mm);
+  margin-left: 2mm;
+}
+
+.card.room .cardHeader.right,
+.card.room .cardRealName.right {
+  width: calc(50% - 3mm);
+  margin-right: 2mm;
+}
+
+/* ADVENTURE */
+
+.cardAdventure {
+  max-height: 36mm;
+  width: 50%;
+  margin-left: 0;
+  margin-right: auto;
+  padding-top: 0mm;
+  padding-left: 0mm;
+  padding-right: 0mm;
+  text-align: center;
+}
+
+.cardAdventureHeader {
+  display: flex;
+  flex-wrap: wrap;
+  height: 5mm;
+}
+
+.cardAdventureCustomName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3mm;
+  padding-top: .4mm;
+  width: 70%;
+}
+
+.cardAdventureName {
+  display: block;
+  height: 2mm;
+  width: 100%;
+}
+
+.cardAdventureCost {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 3mm;
+  width: 30%;
+  padding-right: .5mm;
+}
+
+.cardAdventureCost .mana {
+  margin-left: 0;
+}
+
+.cardAdventureTypes {
+  padding-top: 0;
+}
+
+.cardAdventureText {
+  padding-top: .5mm;
+  padding-left: 1mm;
+  padding-right: 1mm;
+  text-align: center;
+}
+
+.card.adventure .cardText {
+  max-height: 36mm;
+  width: 50%;
+  margin-left: auto;
+  margin-right: 0;
+  padding-top: 1.5mm;
+  padding-left: 1mm;
+  padding-right: 1mm;
+  text-align: center;
+}
+
+
+/* CREATURE */
+
+.creature .cardImage {
+  position: absolute;
+  height: calc(100% - 6mm);
+  width: 100%;
+  background-color: #333;
+  border-bottom-left-radius: 12mm 20mm;
+  border-bottom-right-radius: 12mm 20mm;
+}
+
+.creature .cardText {
+  padding-bottom: 2.5mm;
+}
+
+.creature .cardTextBox {
+  margin-bottom: 5.5mm;
+}
+
+.creature .cardStats {
+  position: absolute;
+  display: block;
+  height: 6mm;
+  width: 12mm;
+  top: auto;
+  bottom: -2.5mm;
+  right: 0;
+  left: auto;
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+}
+
+
+/* SPELL */
+
+.spell .cardImage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+}
+
+.spell .cardTextBox {
+  margin-bottom: 3mm;
+}
+
+.spell .cardText {
+  padding-bottom: 1mm;
+}
+
+/* SAGA */
+
+.card.saga {
+  height: 63mm;
+  width: 88mm;
+  transform-origin: top left;
+  transform: rotate(270deg);
+  top: 88mm;
+  margin-right: -25mm;
+}
+
+.saga .cardImage {
+  position: absolute;
+  height: calc(100% - 16mm);
+  width: calc(60% - 2mm);
+  top:10mm;
+  left: calc(40%);
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+.saga .cardTextBox {
+  border-radius: 0;
+  margin-bottom: 3mm;
+}
+
+.cardSagaTextBox {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 2mm;
+  margin-top: -3mm;
+  padding-top: 3mm;
+  padding-right: 1mm;
+  width: calc(40% - 2mm);
+  height: calc(100% - 16mm);
+  background: #666;
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+}
+.cardSagaChapterMarker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+}
+
+.cardSagaChapterAbility {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 85%;
+  padding: 1mm;
+  border-bottom-color: rgba(0,0,0,.1);
+  border-bottom-style: solid;
+  border-bottom-width: .1mm;
+}
+
+.card :nth-last-child(1 of .cardSagaChapterAbility) {
+  border-bottom: none;
+}
+
+
+.chapterMarker {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5mm;
+  height: 5.5mm;
+  color: white;
+  background: #444;
+  clip-path: polygon(0% 30%, 0% 70%, 50% 100%, 100% 70%, 100% 30%, 50% 0%);
+}
+
+/* PLANESWALKER */
+
+.planeswalker .cardImage {
+  position: absolute;
+  height: calc(100% - 6mm);
+  width: 100%;
+  background-color: #333;
+  border-bottom-left-radius: 12mm 20mm;
+  border-bottom-right-radius: 12mm 20mm;
+}
+
+.cardPlaneswalkerTextBox {
+  display: block;
+  position: absolute;
+  width: calc(100% - 4mm);
+  margin: 0;
+  top: auto;
+  bottom: 0mm;
+  left: 2mm;
+  right: auto;
+  margin-bottom:5mm;
+  padding-top: 1mm;
+  padding-bottom: 0mm;
+  padding-right: 1mm;
+  padding-left: 1mm;
+  border-top-left-radius: 3mm;
+  border-top-right-radius: 3mm;
+  border-bottom-left-radius: 10mm 15mm;
+  border-bottom-right-radius: 15mm 15mm;
+}
+
+.cardPlaneswalkerText {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-height: 50mm;
+  min-height: 15mm;
+  width: calc(95% - 3mm);
+  margin-left: calc(2.5% + 3mm);
+  margin-right: auto;
+  padding-top: 0mm;
+  padding-left: 0mm;
+  padding-right: 0mm;
+  text-align: center;
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png") !important;
+}
+
+.cardPlaneswalkerLoyaltyCost {
+  display: inline;
+  width: .01mm;
+}
+
+.cardPlaneswalkerAbility {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: calc(100% - .01mm);
+  padding: .5mm;
+}
+.cardPlaneswalkerAbility.loyalty {
+  padding-left: 5mm;
+}
+
+.loyaltyCost {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:7mm!important;
+  height:4mm;
+  margin-left: -3.5mm;
+  color: white;
+}
+
+.loyaltyCost.down {
+  clip-path: polygon(0% 0%, 10% 80%, 50% 100%, 90% 80%, 100% 0%);
+}
+
+.loyaltyCost.up {
+  clip-path: polygon(0% 100%, 10% 20%, 50% 0%, 90% 20%, 100% 100%);
+}
+
+.loyaltyCost.zero {
+  clip-path: polygon(0% 0%, 5% 50%, 0% 100%, 100% 100%, 95% 50%, 100% 0%);
+}
+
+.card :nth-child(2n of .cardPlaneswalkerAbility) {
+  background: rgba(0,0,0,.1)
+}
+
+ .cardPlaneswalkerLoyalty {
+   position: absolute;
+   display: flex;
+   height: 6mm;
+   width: 12mm;
+   top: auto;
+   bottom: -4mm;
+   right: 0;
+   left: auto;
+   padding-top: 1mm;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+   background: #222;
+   clip-path: polygon(0% 20%, 10% 80%, 50% 100%, 90% 80%, 100% 20%, 70% 0%, 55% 20%, 45% 20%, 30% 0%);
+   color:white;
+}
+
+.card :nth-last-child(1 of .cardPlaneswalkerAbility) {
+  padding-bottom: 1.5mm;
+}
+
+/* BASIC LANDS */
+
+.land.normal .cardImage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+}
+
+.land .cardCost {padding:0;margin:0;}
+
+.basic.land.normal .cardTextBox {
+  margin-bottom: 3mm;
+}
+
+.basic.land.normal .cardText {
+  padding-bottom: 1mm;
+}
+
+.normal .landSymbol.island {
+  background: #88f;
+  height: 20mm;
+  width: 20mm;
+  margin: 5mm auto 5mm auto;
+  clip-path: circle(50%);
+  -webkit-mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 90mm; 
+  mask-size: 90mm;
+  -webkit-mask-position: -60mm -4mm;
+  mask-position: -60mm -4mm;
+}
+
+.normal .landSymbol.plains {
+  background: #ed8;
+  height: 20mm;
+  width: 20mm;
+  margin: 5mm auto 5mm auto;
+  clip-path: circle(50%);
+  -webkit-mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 90mm; 
+  mask-size: 90mm;
+  -webkit-mask-position: -10mm -4mm;
+  mask-position: -10mm -4mm;
+}
+
+.normal .landSymbol.swamp {
+  background: #333;
+  height: 20mm;
+  width: 20mm;
+  margin: 5mm auto 5mm auto;
+  clip-path: circle(50%);
+  -webkit-mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 90mm; 
+  mask-size: 90mm;
+  -webkit-mask-position: -35mm -25mm;
+  mask-position: -35mm -25mm;
+}
+
+.energy {
+  border: 3mm #ed2 solid;
+}
+.energy .cardHeaderEnergy {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 13mm;
+}
+
+.energy.island .cardHeaderEnergy {
+  border: .5mm #8bf outset;
+  background: #19e;
+}
+
+.energy.plains .cardHeaderEnergy {
+  border: .5mm #ff3 outset;
+  background: #fe0;
+}
+
+.energy.swamp .cardHeaderEnergy {
+  border: .5mm #f0e outset;
+  background: #d0c;
+}
+
+.landEnergyBackground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 13mm);
+  padding-top: 20mm;
+}
+
+.energy.island .landEnergyBackground {
+  width:100%;
+  background-image:
+  radial-gradient(
+  circle at 50% calc(50% + 10mm), 
+  rgba(255, 255, 255, 1) 0%,
+  rgba(255, 255, 255, 1) 26%,
+  rgba(255, 255, 255, .4) 33%,
+  rgba(255, 255, 255, 0) 45%),
+  linear-gradient(180deg,
+  rgba(149, 196, 243, .9) 0%,
+  rgba(67, 150, 234, .9) 100%),
+  url("https://i.imgur.com/126fSuJ.png");
+  background-size: auto, auto, cover;
+  background-position: 0 0, 0 0, center;
+}
+
+.energy.plains .landEnergyBackground {
+  background: 
+  radial-gradient(
+  circle at 50% calc(50% + 10mm), 
+  rgba(255, 255, 255, 1) 0%,
+  rgba(255, 255, 255, 1) 26%,
+  rgba(255, 255, 255, .4) 33%,
+  rgba(255, 255, 255, 0) 45%),
+  linear-gradient(180deg,
+  rgba(248, 223, 0, .6) 0%,
+  rgba(208, 187, 1, .95) 100%),
+  url("https://i.imgur.com/yahJVQk.png");
+  background-size: auto, auto, cover;
+  background-position: 0 0, 0 0, center;
+}
+
+.energy.swamp .landEnergyBackground {
+  background: 
+  radial-gradient(
+  circle at 50% calc(50% + 10mm), 
+  rgba(255, 255, 255, 1) 0%,
+  rgba(255, 255, 255, 1) 26%,
+  rgba(255, 255, 255, .4) 33%,
+  rgba(255, 255, 255, 0) 45%),
+  linear-gradient(180deg,
+  rgba(255, 92, 241, .6) 0%,
+  rgba(163, 0, 150, .95) 100%),
+  url("https://i.imgur.com/rB0Ik9S.png");
+  background-size: auto, auto, cover;
+  background-position: 0 0, 0 0, center;
+}
+
+.energy .landSymbol1 {
+  height: 28mm;
+  width: 28mm;
+  clip-path: circle(50%);
+}
+
+.energy .landSymbol1.island {
+  background: radial-gradient(
+  circle at 70% 30%, 
+  rgba(181, 221, 249, 1) 0%,
+  rgba(28, 48, 161, 1) 100%);
+}
+
+.energy .landSymbol1.plains {
+  background: radial-gradient(
+  circle at 70% 30%, 
+  rgba(255, 227, 5, 1) 0%,
+  rgba(147, 99, 37, 1) 100%);
+}
+
+.energy .landSymbol1.swamp {
+  background: radial-gradient(
+  circle at 70% 30%, 
+  rgba(255, 92, 241, 1) 0%,
+  rgba(117, 0, 108, 1) 100%);
+}
+
+.energy .landSymbol2 {
+  display: block;
+  height: 28mm;
+  width: 28mm;
+  background: radial-gradient(
+  circle at 70% 30%, 
+  rgba(60, 60, 60, 1) 0%,
+  rgba(5, 5, 5, 1) 100%);
+  clip-path: circle(50%);
+  -webkit-mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  mask-image: url('https://i.imgur.com/SmHIQ1y.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 110mm; 
+  mask-size: 110mm;
+}
+
+.energy .landSymbol2.island {
+  -webkit-mask-position: -73mm -2.5mm;
+  mask-position: -73mm -2.5mm;
+}
+
+.energy .landSymbol2.plains {
+  -webkit-mask-position: -10.5mm -2.5mm;
+  mask-position: -10.5mm -2.5mm;
+}
+
+.energy .landSymbol2.swamp {
+  -webkit-mask-position: -41mm -27.5mm;
+  mask-position: -41mm -27.5mm;
+}
+
+.cardCustomNameEnergy {
+    text-shadow: 0 .2mm .2mm rgba(255, 255, 255, .25);
+}
+
+.energy.island .cardCustomNameEnergy {
+    color: rgba(30, 50, 70, .8);
+}
+
+.energy.plains .cardCustomNameEnergy {
+    color: rgba(150, 100, 40, .8);
+}
+
+.energy.swamp .cardCustomNameEnergy {
+    color: rgba(71, 0, 65, .8);
+}
+
+/* MDFCs */
+
+.mdfcFront,
+.mdfcBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8mm;
+  width: 7mm;
+  margin-top: -1.6mm;
+  background: #bbb;
+  clip-path: url(#mdfc-clip);
+}
+
+.mdfcFrontTriangle,
+.mdfcBackTriangle {
+  display: block;
+  background: #333;
+}
+
+.mdfcFrontTriangle {
+  width: 3mm;
+  height: 2.5mm;
+  margin-left: 2mm;
+  margin-top: -.5mm;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+
+.mdfcBackTriangle {
+  width: 4mm;
+  height: 2mm;
+  margin-left: 1.9mm;
+  margin-top: -.3mm;
+  clip-path: polygon(60% 100%, 30% 0%, 0% 100%, 70% 100%, 40% 0%, 100% 0%, 70% 100%);
+}
+
+/* MULTICOLORED */
+
+.multicolored .cardHeader {
+  background:
+  url("https://www.transparenttextures.com/patterns/pineapple-cut.png"),
+  #ff9900;
+}
+
+.multicolored .cardTextBox,
+.multicolored .cardPlaneswalkerTextBox {
+  background:
+  url("https://www.transparenttextures.com/patterns/pineapple-cut.png"),
+  #ff9900;
+}
+
+.multicolored .cardRealName {
+  background-image:
+  url("https://www.transparenttextures.com/patterns/pineapple-cut.png"),
+  linear-gradient(
+      180deg,
+      rgba(255, 153, 0, 1) 0%,
+      rgba(210, 135, 40, 1) 25%
+  );
+}
+
+.multicolored .cardText,
+.multicolored .cardStats {
+  background: #fc8;
+  border: 1mm ridge #e80;
+}
+
+.multicolored .cardPlaneswalkerText {
+  background: #fc8;
+}
+
+.multicolored .loyaltyCost,
+.multicolored .cardPlaneswalkerLoyalty {
+  background: #e60;
+}
+
+/* DIMIR */
+
+.dimir .cardHeader {
+  background: url('http://www.transparenttextures.com/patterns/maze-black.png'),
+  rgba(100, 100, 100, 1);
+}
+
+.dimir .cardTextBox {
+  background: 
+  url("http://www.transparenttextures.com/patterns/maze-black.png"),  
+  linear-gradient(
+    180deg,
+    rgba(100, 100, 100, 1) 0%,
+    rgba(100, 100, 100, 1) 25%,
+    rgba(150, 150, 210, 1) 75%,
+    rgba(150, 150, 210, 0) 100%
+  );
+}
+
+.dimir .cardRealName {
+  background-image:
+  url("http://www.transparenttextures.com/patterns/maze-black.png"),
+  linear-gradient(
+      180deg,
+      rgba(100, 100, 100, 1) 0%,
+      rgba(150, 150, 210, 1) 80%
+  );
+}
+
+.dimir .cardText,
+.dimir .cardStats,
+.cardAdventure.dimir {
+  background: rgba(85, 85, 110, 1);
+  border: 1mm ridge rgba(55, 55, 70, 1);
+}
+
+
+/* AZORIUS */
+
+.azorius .cardHeader {
+  background:
+  url("https://www.transparenttextures.com/patterns/cutcube.png"),
+  #fff5af;
+}
+
+.azorius .cardTextBox {
+  background:
+  url("https://www.transparenttextures.com/patterns/cutcube.png"),
+  linear-gradient(
+      180deg,
+      rgba(255, 245, 175, 1) 0%,
+      rgba(255, 245, 175, 1) 25%,
+      rgba(150, 150, 255, 1) 75%,
+      rgba(150, 150, 255, 0) 100%
+    );
+}
+
+.azorius .cardRealName {
+  background-image:
+  url("https://www.transparenttextures.com/patterns/cutcube.png"),
+  linear-gradient(
+      180deg,
+      rgba(255, 245, 175, 1) 0%,
+      rgba(150, 150, 255, 1) 50%
+    );
+}
+
+.azorius .cardText,
+.azorius .cardStats,
+.cardAdventure.azorius {
+  background: rgba(235, 220, 210, 1);
+  border: 1mm ridge rgba(225, 210, 200, 1);
+}
+
+
+/* ORZHOV */
+
+.orzhov .cardHeader {
+  background: url('http://www.transparenttextures.com/patterns/elegant-grid.png'),
+  rgba(255, 245, 175, 1);
+}
+
+.orzhov .cardTextBox {
+  background: 
+  url("http://www.transparenttextures.com/patterns/elegant-grid.png"),
+  linear-gradient(
+    180deg,
+    rgba(255, 245, 175, 1) 0%,
+    rgba(255, 245, 175, 1) 25%,
+    rgba(100, 100, 100, 1) 75%,
+    rgba(100, 100, 100, 0) 100%
+  );
+}
+
+.orzhov .cardRealName {
+  background-image:
+  url("http://www.transparenttextures.com/patterns/elegant-grid.png"),
+  linear-gradient(
+      180deg,
+      rgba(255, 245, 175, 1) 0%,
+      rgba(100, 100, 100, 1) 50%
+  );
+}
+
+.orzhov .cardText,
+.orzhov .cardStats,
+.cardAdventure.orzhov {
+  background: rgba(180, 170, 150, 1);
+  border: 1mm ridge #cb8;
+}
+
+
+/* WHITE */
+
+.white .cardHeader {
+  background: url("https://www.transparenttextures.com/patterns/dimension.png"), rgba(255, 245, 175, 1);
+}
+
+.white .cardTextBox {
+  background: url("https://www.transparenttextures.com/patterns/dimension.png"), rgba(255, 245, 175, 1);
+}
+
+.white .cardRealName {
+  background-image: url("https://www.transparenttextures.com/patterns/dimension.png"),
+    linear-gradient(
+      180deg,
+      rgba(255, 245, 175, 1) 0%,
+      rgba(215, 210, 140, 1) 50%
+    );
+}
+
+.white .cardText,
+.white .cardStats,
+.cardAdventure.white {
+  background: rgba(255, 255, 200, 1);
+  border: 1mm ridge rgba(240, 230, 160, 1);
+}
+
+
+/* BLACK */
+
+.black .cardHeader {
+  background: url("https://www.transparenttextures.com/patterns/diagmonds.png"), rgba(100, 100, 100, 1);
+}
+
+.black .cardTextBox {
+  background: url("https://www.transparenttextures.com/patterns/diagmonds.png"), rgba(100, 100, 100, 1);
+}
+
+.black .cardRealName {
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png"),
+    linear-gradient(
+      180deg,
+      rgba(100, 100, 100, 1) 0%,
+      rgba(70, 70, 70, 1) 50%
+    );
+}
+
+.black .cardText,
+.black .cardStats,
+.cardAdventure.black {
+  background: rgba(125, 125, 125, 1);
+  border: 1mm ridge rgba(85, 85, 85, 1);
+}
+
+
+/* BLUE */
+
+.blue .cardHeader {
+  background:
+    url("https://www.transparenttextures.com/patterns/black-scales.png"),
+    rgba(150, 150, 255, 1);
+}
+
+.blue .cardTextBox {
+  background:
+    url("https://www.transparenttextures.com/patterns/black-scales.png"),
+    rgba(150, 150, 255, 1);
+}
+
+.blue .cardRealName {
+  background-image:
+    url("https://www.transparenttextures.com/patterns/black-scales.png"),
+    linear-gradient(
+      180deg,
+      rgba(150, 150, 255, 1) 0%,
+      rgba(120, 120, 255, 1) 25%
+    );
+}
+
+.blue .cardText,
+.blue .cardStats,
+.cardAdventure.blue {
+  background: rgba(175, 175, 255, 1);
+  border: 1mm ridge rgba(135, 135, 240, 1);
+}
+
+.blue .cardAdventureHeader {
+  background: rgba(145, 145, 225, 1);
+}
+.blue .cardAdventureTypes {
+  background: rgba(155, 155, 235, 1);
+}
+
+
+/* COLORLESS */
+
+.colorless .cardHeader {
+  background:
+    url("https://www.transparenttextures.com/patterns/hexabump.png"),
+    rgba(220, 220, 220, 1);
+}
+
+.colorless .cardTextBox {
+  background:
+    url("https://www.transparenttextures.com/patterns/hexabump.png"),
+    rgba(220, 220, 220, 1);
+}
+
+.colorless .cardRealName {
+  background-image:
+    url("https://www.transparenttextures.com/patterns/hexabump.png"),
+    linear-gradient(
+      180deg,
+      rgba(220, 220, 220, 1) 0%,
+      rgba(180, 180, 180, 1) 25%
+    );
+}
+
+.colorless .cardText,
+.colorless .cardStats,
+.cardAdventure.colorless {
+  background: rgba(230, 230, 230, 1);
+  border: 1mm ridge rgba(210, 210, 210, 1);
+}

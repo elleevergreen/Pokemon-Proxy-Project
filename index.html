@@ -1,0 +1,2783 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="DefaultCards.css"/>
+  <link rel="stylesheet" href="CustomCards.css"/>
+</head>
+
+<body>
+  
+<div id="cardEditor">
+  <label>
+    Custom Name
+    <input id="editCustomName" type="text">
+  </label>
+
+  <label>
+    Real Name
+    <input id="editRealName" type="text">
+  </label>
+
+  <label>
+    Type Line
+    <input id="editTypes" type="text">
+  </label>
+
+  <label>
+    Rules Text
+    <textarea id="editRules"></textarea>
+  </label>
+
+  <label>
+    Power / Toughness
+    <input id="editStats" type="text">
+  </label>
+
+  <label>
+    Image URL
+    <input id="editImageURL" type="text">
+  </label>
+
+  <label>
+    Image Size
+    <input id="editImageSize" type="text">
+  </label>
+
+  <label>
+    Image Position
+    <input id="editImagePosition" type="text">
+  </label>
+
+  <button id="applyCardChanges">Apply Changes</button>
+</div>
+  
+<svg width="0" height="0">  
+  <defs>  
+    <clipPath id="mdfc-clip" clipPathUnits="objectBoundingBox">  
+      <path d="  
+        M 0.02,0.50  
+  
+        C 0.20,0.41 0.34,0.29 0.47,0.23  
+        C 0.62,0.16 0.79,0.18 0.90,0.27  
+  
+        C 0.98,0.34 0.995,0.42 0.995,0.50  
+        C 0.995,0.58 0.98,0.66 0.90,0.73  
+  
+        C 0.79,0.82 0.62,0.84 0.47,0.77  
+        C 0.34,0.71 0.20,0.59 0.02,0.50  
+  
+        Z  
+      "/>  
+    </clipPath>  
+  </defs>  
+</svg>  
+
+  
+  <div id="basicLandBinder" class="binder">
+    
+    <div class="card island basic land normal blue">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"></p>
+      </div>
+
+      <p class="cardRealName">Island</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Basic Land — Island</p>
+
+        <div class="cardText">
+          <div class="landSymbol island"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card plains basic land normal white">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"></p>
+      </div>
+
+      <p class="cardRealName">Plains</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Basic Land — Plains</p>
+
+        <div class="cardText">
+          <div class="landSymbol plains"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card swamp basic land normal black">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"></p>
+      </div>
+
+      <p class="cardRealName">Swamp</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Basic Land — Swamp</p>
+
+        <div class="cardText">
+          <div class="landSymbol swamp"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card island basic land energy">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center"></div>
+      <div class="cardHeaderEnergy">
+        <p class="headerLandSymbol island"></p>
+        <p class="cardCustomNameEnergy">ENERGY</p>
+      </div>
+      <div class="landEnergyBackground">
+        <div class="landSymbol1 island">
+          <p class="landSymbol2 island"></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card plains basic land energy">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center"></div>
+      <div class="cardHeaderEnergy">
+        <p class="headerLandSymbol plains"></p>
+        <p class="cardCustomNameEnergy">ENERGY</p>
+      </div>
+      <div class="landEnergyBackground">
+        <div class="landSymbol1 plains">
+          <p class="landSymbol2 plains"></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card swamp basic land energy">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center"></div>
+      <div class="cardHeaderEnergy">
+        <p class="headerLandSymbol swamp"></p>
+        <p class="cardCustomNameEnergy">ENERGY</p>
+      </div>
+      <div class="landEnergyBackground">
+        <div class="landSymbol1 swamp">
+          <p class="landSymbol2 swamp"></p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div id="tokenBinder" class="binder">
+  </div>
+  
+  <div id="creatureBinder" class="binder">
+
+    <div class="card tivitsellerofsecrets creature multicolored esper">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/3tSrOmT.png'); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Elle and Vaporeon, Leaders</p>
+        <p class="cardCost"><span class="mana mana-3"></span><span class="mana mana-W"></span><span class="mana mana-U"></span><span class="mana mana-B"></span></p>
+      </div>
+
+      <p class="cardRealName">Tivit, Seller of Secrets</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Sphinx Rogue</p>
+
+        <div class="cardText">
+          <p>Flying, ward <span class="mana mana-3"></span></p>
+          <p><em>Council's dilemma</em> — Whenever Elle and Vaporeon enters or deals combat damage to a player, starting with you, each player votes for evidence or bribery. For each evidence vote, investigate. For each bribery vote, create a Treasure token.</p>
+          <p>While voting, you may vote an additional time.</p>
+        </div>
+
+        <p class="cardStats">6/6</p>
+      </div>
+    </div>
+
+    <div class="card academymanufacturer artifact creature colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/YMcWLZd.jpeg'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Registeel</p>
+        <p class="cardCost"><span class="mana mana-3"></span></p>
+      </div>
+
+      <p class="cardRealName">Academy Manufacturer</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact Creature — Assembly-Worker</p>
+
+        <div class="cardText">
+          <p>If you would create a Clue, Food, or Treasure token, instead create one of each.</p>
+          <p><em>It is sturdier than any kind of metal. It hardened due to pressure underground over tens of thousands of years.</em></p>
+        </div>
+
+        <p class="cardStats">1/3</p>
+      </div>
+    </div>
+
+   <div class="card archaeomancer creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/K1xxrrX.jpeg'); background-size: 100% auto; background-position: 0 0"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Cloyster</p>
+        <p class="cardCost"><span class="mana mana-2"></span><span class="mana mana-U"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Archaeomancer</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Wizard</p>
+
+        <div class="cardText">
+          <p>When Cloyster enters, return target instant or sorcery card from your graveyard to your hand.</p>
+          <p><em>Cloyster that live in seas with harsh tidal currents grow large, sharp spikes on their shells.</em></p>
+        </div>
+
+        <p class="cardStats">1/2</p>
+      </div>
+    </div>
+
+    <div class="card balefulstrix creature artifact multicolored dimir">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/YxwwqSu.png'); background-size: 100% auto; background-position: center top"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Corviknight</p>
+        <p class="cardCost"><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName">Baleful Strix</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact Creature — Bird</p>
+
+        <div class="cardText">
+          <p>Flying, deathtouch</p>
+          <p>When Corviknight enters, draw a card.</p>
+        </div>
+        <p class="cardStats">1/1</p>
+      </div>
+    </div>
+    
+
+    <div class="card deadeyenavigator creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/NzGhFmP.png'); background-size: 100% auto; background-position: center 5mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Beheeyem</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Deadeye Navigator</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Spirit</p>
+
+        <div class="cardText">
+          <p>Soulbond</p>
+          <p>As long as Beheeyem is paired with another creature, each of those creatures has &quot;<span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-U" aria-label="{U}"></span>: Exile this creature, then return it to the battlefield under your control.&quot;</p>
+        </div>
+        <p class="cardStats">5/5</p>
+      </div>
+    </div>
+
+    <div class="card displacerkitten creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/msdIbxh.jpeg'); background-size: 100% auto; background-position: center -12mm"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Espeon</p>
+        <p class="cardCost"><span class="mana mana-3"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Displacer Kitten</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Cat Beast</p>
+
+        <div class="cardText">
+          <p><em>Avoidance</em> — Whenever you cast a noncreature spell, exile up to one target nonland permanent you control, then return that card to the battlefield under its owner's control.</p>
+        </div>
+
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+
+    <div class="card drannithmagistrate creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/GJ5yEQS.jpeg'); background-size: auto 110%; background-position: -24mm -10mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Prof. Oak, Research Authority</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Drannith Magistrate</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Wizard</p>
+
+        <div class="cardText">
+          <p>Your opponents can't cast spells from anywhere other than their hands.</p>
+          <p><em>"This isn't the time to use that!" — Prof. Oak</em></p>
+        </div>
+        <p class="cardStats">1/3</p>
+      </div>
+    </div>
+
+    <div class="card eleshnornmotherofmachines creature legendary white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/4Xuxy84.png'); background-size: 110% auto; background-position: center 0mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Cynthia, Mother of Mythos</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Elesh Norn, Mother of Machines</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Phyrexian Praetor</p>
+
+        <div class="cardText">
+          <p>Vigilance</p>
+          <p>If a permanent entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.</p>
+          <p>Permanents entering don't cause abilities of permanents your opponents control to trigger.</p>
+        </div>
+        <p class="cardStats">4/7</p>
+      </div>
+    </div>
+
+    <div class="card ertairesurrected creature legendary multicolored dimir">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/imksd14.png'); background-size: 100% auto; background-position: center -25mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Jess, Head Operative</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName">Ertai Resurrected</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Phyrexian Human Wizard</p>
+
+        <div class="cardText">
+          <p>Flash</p>
+          <p>When Jess enters, choose up to one —</p>
+          <p>• Counter target spell, activated ability, or triggered ability. Its controller draws a card.</p>
+          <p>• Destroy another target creature or planeswalker. Its controller draws a card.</p>
+        </div>
+        <p class="cardStats">3/2</p>
+      </div>
+    </div>
+
+    <div class="card espersentinel creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/TLoD1JH.jpeg'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Magnemite</p>
+        <p class="cardCost"><span class="mana mana-W"></span></p>
+      </div>
+
+      <p class="cardRealName">Esper Sentinel</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact Creature — Human Soldier</p>
+
+        <div class="cardText">
+          <p>Whenever an opponent casts their first noncreature spell each turn, draw a card unless that player pays X, where X is Magnemite's power.</p>
+          <p><em>The electricity emitted by the units on each side of its body cause it to become a strong magnet.</em></p>
+        </div>
+
+        <p class="cardStats">1/1</p>
+      </div>
+    </div>
+
+    <div class="card exaltedsunborn creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/UhIvhd1.jpeg'); background-size: 100% auto; background-position: center -6mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Togekiss</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Exalted Sunborn</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Angel Wizard</p>
+
+        <div class="cardText">
+          <p>Flying, lifelink</p>
+          <p>If one or more tokens would be created under your control, twice that many of those tokens are created instead.</p>
+          <p>Warp <span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+        </div>
+        <p class="cardStats">4/5</p>
+      </div>
+    </div>
+
+    <div class="card felidarguardian creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/ss6IaUo.jpeg'); background-size: 105% auto; background-position: left -2mm"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Espurr</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Felidar Guardian</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Cat Beast</p>
+
+        <div class="cardText">
+          <p>When this Espurr enters, you may exile another target permanent you control, then return that card to the battlefield under its owner's control.</p>
+          <p><em>Behind an Espurr’s expressionless face is a frantic struggle to contain psychic power.</em></p>
+        </div>
+        <p class="cardStats">1/4</p>
+      </div>
+    </div>
+
+    <div class="card grandabolisher creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/iTDkabW.png'); background-size: 103% auto; background-position: center -25mm"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Officer Jenny, Peacekeeper</p>
+        <p class="cardCost"><span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Grand Abolisher</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Cleric</p>
+
+        <div class="cardText">
+          <p>During your turn, your opponents can't cast spells or activate abilities of artifacts, creatures, or enchantments.</p>
+          <p><em>Hey! Who do you think you are, coming here and causing trouble?!</em></p>
+        </div>
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+    
+   <div class="card grandarbiteraugustiniv creature azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/D4ZiUgL.jpeg'); background-size: 100% auto; background-position: center 0"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Wash Rotom</p>
+        <p class="cardCost"><span class="mana mana-2"></span><span class="mana mana-W"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Grand Arbiter Augustin IV</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Human Advisor</p>
+
+        <div class="cardText">
+          <p>White spells you cast cost <span class="mana mana-1"></span> less to cast.</p>
+          <p>Blue spells you cast cost <span class="mana mana-1"></span> less to cast.</p>
+          <p>Spells your opponents cast cost <span class="mana mana-1"></span> more to cast.</p>
+        </div>
+
+        <p class="cardStats">2/3</p>
+      </div>
+    </div>
+
+    <div class="card grimservant creature black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/n8g8yzE.jpeg'); background-size: 100% auto; background-position: center -7mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Sableye</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName">Grim Servant</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Zombie Warlock</p>
+
+        <div class="cardText">
+          <p>Menace</p>
+          <p>When Sableye enters, search your library for a card with mana value less than or equal to your devotion to black, reveal it, put it into your hand, then shuffle. You lose 3 life.</p>
+        </div>
+        <p class="cardStats">3/2</p>
+      </div>
+    </div>
+
+    <div class="card junkwinder creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/ufivyQD.jpeg'); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Dragonair</p>
+        <p class="cardCost"><span class="mana mana-5"></span><span class="mana mana-U"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Junk Winder</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Serpent</p>
+
+        <div class="cardText">
+          <p>Affinity for tokens</p>
+          <p>Whenever a token you control enters, tap target nonland permanent an opponent controls. It doesn't untap during its controller's next untap step.</p>
+        </div>
+
+        <p class="cardStats">5/6</p>
+      </div>
+    </div>
+    
+    <div class="card marionettemaster creature black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/s4LPbsm.jpeg'); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Gengar</p>
+        <p class="cardCost"><span class="mana mana-4"></span><span class="mana mana-B"></span><span class="mana mana-B"></span></p>
+      </div>
+
+      <p class="cardRealName">Marionette Master</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Artificer</p>
+
+        <div class="cardText">
+          <p>Fabricate 3</p>
+          <p>Whenever an artifact you control is put into a graveyard from the battlefield, target opponent loses life equal to Gengar's power.</p>
+        </div>
+
+        <p class="cardStats">1/3</p>
+      </div>
+    </div>
+
+    <div class="card mirkwoodbats creature black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/9IQtLOX.jpeg'); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Golbat</p>
+        <p class="cardCost"><span class="mana mana-3"></span><span class="mana mana-B"></span></p>
+      </div>
+
+      <p class="cardRealName">Mirkwood Bats</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Bat</p>
+
+        <div class="cardText">
+          <p>Flying</p>
+          <p>Whenever you create or sacrifice a token, each opponent loses 1 life.</p>
+          <p><em>Once it starts sucking blood, it does not stop until it is full. It flies at night in search of prey.</em></p>
+        </div>
+
+        <p class="cardStats">2/3</p>
+      </div>
+    </div>
+
+    <div class="card mondrakglorydominus creature legendary white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/FmZjVbF.jpeg'); background-size: 140% auto; background-position: 0 0"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Mega Diancie</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Mondrak, Glory Dominus</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Phyrexian Horror</p>
+
+        <div class="cardText">
+          <p>If one or more tokens would be created under your control, twice that many of those tokens are created instead.</p>
+          <p><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W-P" aria-label="{W/P}"></span><span class="mana mana-W-P" aria-label="{W/P}"></span>, Sacrifice two other artifacts and/or creatures: Put an indestructible counter on Mega Diancie.</p>
+        </div>
+        <p class="cardStats">4/4</p>
+      </div>
+    </div>
+
+    <div class="card moonblessedcleric creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/vLPX927.jpeg'); background-size: auto 100%; background-position: 0mm center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Gardevoir</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Moon-Blessed Cleric</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Elf Cleric</p>
+
+        <div class="cardText">
+          <p>Divine Intervention — When Gardevoir enters, you may search your library for an enchantment card, reveal it, then shuffle and put that card on top.</p>
+        </div>
+        <p class="cardStats">3/2</p>
+      </div>
+    </div>
+
+    <div class="card oppositionagent creature black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/LreF4Zq.jpeg'); background-size: 102% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Giovanni, Kingpin</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName">Opposition Agent</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Rogue</p>
+
+        <div class="cardText">
+          <p>Flash</p>
+          <p>You control your opponents while they're searching their libraries.</p>
+          <p>While an opponent is searching their library, they exile each card they find. You may play those cards for as long as they remain exiled, and you may spend mana as though it were mana of any color to cast them.</p>
+        </div>
+        <p class="cardStats">3/2</p>
+      </div>
+    </div>
+    
+    <div class="card palladiummyr artifact creature colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/YJ3ivBi.jpeg'); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Magearna</p>
+        <p class="cardCost"><span class="mana mana-3"></span></p>
+      </div>
+
+      <p class="cardRealName">Palladium Myr</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact Creature — Myr</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T"></span>: Add <span class="mana mana-C"></span><span class="mana mana-C"></span>.</p>
+          <p><em>This artificial Pokémon, constructed more than 500 years ago, can understand human speech but cannot itself speak.</em></p>
+        </div>
+
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+
+    <div class="card peregrinedrake creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/LzA8Pfl.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Altaria</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Peregrine Drake</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Drake</p>
+
+        <div class="cardText">
+          <p>Flying</p>
+          <p>When Altaria enters, untap up to five lands.</p>
+          <p><em>Altaria sings in a gorgeous soprano. Its wings are like cotton clouds. This Pokémon catches updrafts with its buoyant wings and soars way up into the wild blue yonder.</em></p>
+        </div>
+        <p class="cardStats">2/3</p>
+      </div>
+    </div>
+
+    <div class="card persuasiveinterrogators creature black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/h7B8XHs.png'); background-size: 100% auto; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Toxicroak</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span><span class="mana mana-B" aria-label="{B}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName">Persuasive Interrogators</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Gorgon Detective</p>
+
+        <div class="cardText">
+          <p>When Toxicroak enters, investigate.</p>
+          <p>Whenever you sacrifice a Clue, target opponent gets two poison counters.</p>
+          <p><em>Its knuckle claws secrete a toxin so vile that even a scratch could prove fatal.</em></p>
+        </div>
+        <p class="cardStats">5/6</p>
+      </div>
+    </div>
+
+    <div class="card pheliaexuberantshepherd creature legendary white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/YbVQyRk.png'); background-size: 145% auto; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Yamper</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Phelia, Exuberant Shepherd</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Dog</p>
+
+        <div class="cardText">
+          <p>Flash</p>
+          <p>Whenever Yamper attacks, exile up to one other target nonland permanent. At the beginning of the next end step, return that card to the battlefield under its owner's control. If it entered under your control, put a +1/+1 counter on Yamper.</p>
+        </div>
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+
+    <div class="card recruiteroftheguard creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/bOPO9VF.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Looker, Interpol Officer</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Recruiter of the Guard</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Soldier</p>
+
+        <div class="cardText">
+          <p>When Looker enters, you may search your library for a creature card with toughness 2 or less, reveal it, put it into your hand, then shuffle.</p>
+          <p><em>"The more wonderful the meeting, the sadder the parting."</em></p>
+        </div>
+        <p class="cardStats">1/1</p>
+      </div>
+    </div>
+
+    <div class="card sakashimaofathousandfaces creature legendary blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/WSwCM4I.jpeg'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Mew</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Sakashima of a Thousand Faces</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Human Rogue</p>
+
+        <div class="cardText">
+          <p>You may have Mew enter as a copy of another creature you control, except it has Mew's other abilities.</p>
+          <p>The "legend rule" doesn't apply to permanents you control.</p>
+          <p>Partner</p>
+        </div>
+        <p class="cardStats">3/1</p>
+      </div>
+    </div>
+
+    <div class="card soulherder creature azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/tUi4rUp.jpeg'); background-size: 100% auto; background-position: center -10mm"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Abra</p>
+        <p class="cardCost"><span class="mana mana-1"></span><span class="mana mana-W"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Soulherder</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Spirit</p>
+
+        <div class="cardText">
+          <p>Whenever a creature is exiled from the battlefield, put a +1/+1 counter on Abra.</p>
+          <p>At the beginning of your end step, you may exile another target creature you control, then return that card to the battlefield under its owner's control.</p>
+        </div>
+
+        <p class="cardStats">1/1</p>
+      </div>
+    </div>
+
+    <div class="card spellseeker creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/clFiCjV.png'); background-size: 100% auto; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Xatu</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Spellseeker</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Wizard</p>
+
+        <div class="cardText">
+          <p>When Xatu enters, you may search your library for an instant or sorcery card with mana value 2 or less, reveal it, put it into your hand, then shuffle.</p>
+        </div>
+        <p class="cardStats">1/1</p>
+      </div>
+    </div>
+
+    <div class="card spellskite creature artifact colorless blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/5wwLkUc.jpeg'); background-size: 110% auto; background-position: center top"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Wobbuffet</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Spellskite</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact Creature — Phyrexian Horror</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-U-P" aria-label="{U/P}"></span>: Change a target of target spell or ability to Wobbuffet.</p>
+          <p><em>It desperately tries to keep its black tail hidden. It is said to be proof the tail hides a secret.</em></p>
+        </div>
+        <p class="cardStats">0/4</p>
+      </div>
+    </div>
+
+    <div class="card starfieldvocalist creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/wnLtHGf.png'); background-size: auto 118%; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Primarina</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Starfield Vocalist</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Bard</p>
+
+        <div class="cardText">
+          <p>If a permanent entering the battlefield causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.</p>
+          <p>Warp <span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+        </div>
+        <p class="cardStats">3/4</p>
+      </div>
+    </div>
+
+    <div class="card starwinder creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/Sh7a8Rk.jpeg'); background-size: 120% auto; background-position: right bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Red Gyarados</p>
+        <p class="cardCost"><span class="mana mana-5" aria-label="{5}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Starwinder</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Leviathan</p>
+
+        <div class="cardText">
+          <p>Whenever a creature you control deals combat damage to a player, you may draw that many cards.</p>
+          <p>Warp <span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+        </div>
+        <p class="cardStats">7/7</p>
+      </div>
+    </div>
+
+    <div class="card stoneforgemystic creature white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/6Y1PJaf.png'); background-size: auto 120%; background-position: -32mm bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Tinkaton</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Stoneforge Mystic</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Kor Artificer</p>
+
+        <div class="cardText">
+          <p>When Tinkaton enters, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle.</p>
+          <p><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W" aria-label="{W}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: You may put an Equipment card from your hand onto the battlefield.</p>
+        </div>
+        <p class="cardStats">1/2</p>
+      </div>
+    </div>
+    
+    <div class="card tangletrovekelp creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/WDlp0ci.png'); background-size: 112% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Tangrowth</p>
+        <p class="cardCost"><span class="mana mana-5"></span><span class="mana mana-U"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Tangletrove Kelp</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact Creature — Clue Plant</p>
+
+        <div class="cardText">
+          <p>Ward <span class="mana mana-2"></span></p>
+          <p>At the beginning of each combat, other Clues you control become 6/6 Plant creatures in addition to their other types until end of turn.</p>
+          <p><span class="mana mana-2"></span>, Sacrifice Tangrowth: Draw a card.</p>
+        </div>
+
+        <p class="cardStats">6/6</p>
+      </div>
+    </div>
+    
+    <div class="card thassadeepdwelling creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/mJT4H5n.jpeg'); background-size: 125% auto; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Kyogre, God of the Sea</p>
+        <p class="cardCost"><span class="mana mana-3"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Thassa, Deep-Dwelling</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Enchantment Creature — God</p>
+
+        <div class="cardText">
+          <p>Indestructible</p>
+          <p>As long as your devotion to blue is less than five, Kyogre isn't a creature.</p>
+          <p>At the beginning of your end step, exile up to one other target creature you control, then return that card to the battlefield under your control.</p>
+          <p><span class="mana mana-3"></span><span class="mana mana-U"></span>: Tap another target creature.</p>
+        </div>
+
+        <p class="cardStats">6/5</p>
+      </div>
+    </div>
+
+    <div class="card transitmage creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/AmE33gH.png'); background-size: auto 103%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Gigantamax Hatterene</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Transit Mage</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Wizard</p>
+
+        <div class="cardText">
+          <p>When Gigantamax Hatterene enters, you may search your library for an artifact card with mana value 4 or 5, reveal it, put it into your hand, then shuffle.</p>
+        </div>
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+
+    <div class="card tributemage creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/UTeo8Of.png'); background-size: 139% auto; background-position: right center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Hattrem</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Tribute Mage</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Wizard</p>
+
+        <div class="cardText">
+          <p>When Hattrem enters, you may search your library for an artifact card with mana value 2, reveal it, put it into your hand, then shuffle.</p>
+        </div>
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+
+    <div class="card trinketmage creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/BQ1zgxw.png'); background-size: 160% auto; background-position: right center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Hatenna</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Trinket Mage</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Wizard</p>
+
+        <div class="cardText">
+          <p>When Hatenna enters, you may search your library for an artifact card with mana value 1 or less, reveal it, put it into your hand, then shuffle.</p>
+        </div>
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+
+    <div class="card trophymage creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/ipWaN14.png'); background-size: 120% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Hatterene</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Trophy Mage</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Creature — Human Wizard</p>
+
+        <div class="cardText">
+          <p>When Hatterene enters, you may search your library for an artifact card with mana value 3, reveal it, put it into your hand, then shuffle.</p>
+        </div>
+        <p class="cardStats">2/2</p>
+      </div>
+    </div>
+
+    <div class="card urzalordhighartificer creature blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/aFYn454.png'); background-size: 120% auto; background-position: right -40mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Vaporeon, Technician</p>
+        <p class="cardCost"><span class="mana mana-2"></span><span class="mana mana-U"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Urza, Lord High Artificer</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Human Artificer</p>
+
+        <div class="cardText">
+          <p>When Vaporeon enters, create a 0/0 colorless Construct artifact creature token with "This creature gets +1/+1 for each artifact you control."</p>
+          <p>Tap an untapped artifact you control: Add <span class="mana mana-U"></span>.</p>
+          <p><span class="mana mana-5"></span>: Shuffle your library, then exile the top card. Until end of turn, you may play that card without paying its mana cost.</p>
+        </div>
+
+        <p class="cardStats">1/4</p>
+      </div>
+    </div>
+
+    <div class="card yshtolarhul creature legendary blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/b83eUhC.jpeg'); background-size: 100% auto; background-position: center -15mm"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName"><span class="prefix">Team Esper's </span>Lapras</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Y'shtola Rhul</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Creature — Cat Druid</p>
+
+        <div class="cardText">
+          <p>At the beginning of your end step, exile target creature you control, then return it to the battlefield under its owner's control. Then if it's the first end step of the turn, there is an additional end step after this step.</p>
+        </div>
+        <p class="cardStats">3/5</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="spellBinder" class="binder">
+    
+    <div class="card aminatouthefateshifter planeswalker aminatou spell multicolored">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/YuDRFdu.jpeg'); background-size: auto 110%; background-position: -28mm 0;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Sabrina, Gym Leader</p>
+        <p class="cardCost"><span class="mana mana-W"></span><span class="mana mana-U"></span><span class="mana mana-B"></span></p>
+      </div>
+
+      <p class="cardRealName">Aminatou, the Fateshifter</p>
+
+      <div class="cardPlaneswalkerTextBox">
+        <p class="cardTypes">Legendary Planeswalker — Aminatou</p>
+
+        <div class="cardPlaneswalkerText">
+          <div class="cardPlaneswalkerLoyaltyCost">
+            <p class="loyaltyCost up">+1</p>
+          </div>
+
+          <div class="cardPlaneswalkerAbility loyalty">
+            <p>Draw a card, then put a card from your hand on top of your library.</p>
+          </div>
+
+          <div class="cardPlaneswalkerLoyaltyCost">
+            <p class="loyaltyCost down">-1</p>
+          </div>
+
+          <div class="cardPlaneswalkerAbility loyalty">
+            <p>Exile another target permanent you own, then return it to the battlefield under your control.</p>
+          </div>
+
+          <div class="cardPlaneswalkerLoyaltyCost">
+            <p class="loyaltyCost down">-6</p>
+          </div>
+
+          <div class="cardPlaneswalkerAbility loyalty">
+            <p>Choose left or right. Each player gains control of all nonland permanents other than Sabrina controlled by the next player in the chosen direction.</p>
+          </div>
+
+          <div class="cardPlaneswalkerAbility passive">
+            <p>Sabrina, Gym Leader can be your commander.</p>
+          </div>
+        </div>
+
+        <p class="cardPlaneswalkerLoyalty">3</p>
+      </div>
+    </div>
+
+    <div class="card anointedprocession spell white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/DDgwmbq.png'); background-size: 135% auto; background-position: center -7mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">TM32: Double Team</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Anointed Procession</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment</p>
+
+        <div class="cardText">
+          <p>If an effect would create one or more tokens under your control, it creates twice that many of those tokens instead.</p>
+          <p><em>By moving rapidly, the user makes illusory copies of itself to raise its evasiveness.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card arcanesignet spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/f7QqhSR.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Ring of Allegiance</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Arcane Signet</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add one mana of any color in your commander's color identity.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card austerecommand spell white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/9jqDH8d.png'); background-size: auto 115%; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Hyper Beam</p>
+        <p class="cardCost"><span class="mana mana-4"></span><span class="mana mana-W"></span><span class="mana mana-W"></span></p>
+      </div>
+
+      <p class="cardRealName">Austere Command</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Choose two —</p>
+          <p>• Destroy all artifacts.</p>
+          <p>• Destroy all enchantments.</p>
+          <p>• Destroy all creatures with mana value 3 or less.</p>
+          <p>• Destroy all creatures with mana value 4 or greater.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card azoriussignet spell artifact colorless azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/taIvc84.png'); background-size: 108% auto; background-position: right bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Feather Badge</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Azorius Signet</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-1" aria-label="{1}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-U" aria-label="{U}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card brainstorm spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/YZ5Vbt6.png'); background-size: 120% auto; background-position: center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Future Sight</p>
+        <p class="cardCost"><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Brainstorm</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Draw three cards, then put two cards from your hand on top of your library in any order.</p>
+          <p><em>A short time after this move is used, a blast of psychic energy will strike the spot where the target was.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card candlekeepsage spell legendary blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/eMy4TnX.png'); background-size: 145% auto; background-position: center top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">TM132: Baton Pass</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Candlekeep Sage</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Enchantment — Background</p>
+
+        <div class="cardText">
+          <p>Commander creatures you own have "When this creature enters or leaves the battlefield, draw a card."</p>
+          <p><em>A move that transfers the user's status changes to the next Pokémon when switching.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card conjurerscloset spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/OE79SRK.png'); background-size: 170% auto; background-position: -10mm bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Pokémon Center PC</p>
+        <p class="cardCost"><span class="mana mana-5" aria-label="{5}"></span></p>
+      </div>
+
+      <p class="cardRealName">Conjurer's Closet</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p>At the beginning of your end step, you may exile target creature you control, then return that card to the battlefield under your control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card counterspell spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/BuIyg2b.png'); background-size: auto 121%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Surprised Pikachu</p>
+        <p class="cardCost"><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Counterspell</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Counter target spell.</p>
+          <p><em>What else did you think was gonna happen?<br>
+            Why do you look so surprised?</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card cyclonicrift spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/JHz8Pz2.png'); background-size: 100% auto; background-position: center top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Whirlwind</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Cyclonic Rift</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Return target nonland permanent you don't control to its owner's hand.</p>
+          <p>Overload <span class="mana mana-6" aria-label="{6}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+        </div>
+      </div>
+    </div>
+
+   <div class="card damn spell black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/dZ7aLSp.jpeg'); background-size: auto 125%; background-position: -12.5mm top"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Team Rocket's Heist</p>
+        <p class="cardCost"><span class="mana mana-B"></span><span class="mana mana-B"></span></p>
+      </div>
+
+      <p class="cardRealName">Damn</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Destroy target creature. A creature destroyed this way can't be regenerated.</p>
+          <p>Overload <span class="mana mana-2"></span><span class="mana mana-W"></span><span class="mana mana-W"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card darkritual spell black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/P0tUmNj.jpeg'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Nasty Plot</p>
+        <p class="cardCost"><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName">Dark Ritual</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Add <span class="mana mana-B" aria-label="{B}"></span><span class="mana mana-B" aria-label="{B}"></span><span class="mana mana-B" aria-label="{B}"></span>.</p>
+          <p><em>The user stimulates its brain by thinking bad thoughts, raising the user's offensive stats.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card decanterofendlesswater spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/zTV8H7P.png'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Squirt Bottle</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span></p>
+      </div>
+
+      <p class="cardRealName">Decanter of Endless Water</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p>You have no maximum hand size.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add one mana of any color.</p>
+          <p><em>A bottle used for watering plants.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card dimirsignet spell artifact colorless dimir">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/m4jdMjX.png'); background-size: 105% auto; background-position: right -2mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Fog Badge</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Dimir Signet</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-1" aria-label="{1}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-B" aria-label="{B}"></span>.</p>       
+        </div>
+      </div>
+    </div>
+
+    <div class="card displace spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/CKPX1zi.png'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Ally Switch</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Displace</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile up to two target creatures you control, then return those cards to the battlefield under their owner's control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card eerieinterlude spell white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/fFqZFsZ.png'); background-size: auto 105%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Everyone, Return!</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Eerie Interlude</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile any number of target creatures you control. Return those cards to the battlefield under their owner's control at the beginning of the next end step.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card ephemerate spell white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/DA79PZQ.png'); background-size: 115% auto; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Youngster Joey Calls Again??</p>
+        <p class="cardCost"><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Ephemerate</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile target creature you control, then return it to the battlefield under its owner's control.</p>
+          <p>Rebound</p>
+          <p><em>"Remember my super cool Rattata? My Rattata is different from regular Rattata. It’s like my Rattata is in the top percentage of all Rattata."</em></p>
+
+        </div>
+      </div>
+    </div>
+    
+   <div class="card farewell spell white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/NahESjv.jpeg'); background-size: auto 100%; background-position: center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Unfortunate Ending</p>
+        <p class="cardCost"><span class="mana mana-4"></span><span class="mana mana-W"></span><span class="mana mana-W"></span></p>
+      </div>
+
+      <p class="cardRealName">Farewell</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Choose one or more —</p>
+          <p>• Exile all artifacts.</p>
+          <p>• Exile all creatures.</p>
+          <p>• Exile all enchantments.</p>
+          <p>• Exile all graveyards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card ghostlyflicker spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/UhyLOvX.jpeg'); background-size: 110% auto; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Into the Distortion World</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Ghostly Flicker</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile two target artifacts, creatures, and/or lands you control, then return those cards to the battlefield under your control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card hideontheceiling spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/egv9Jdu.png'); background-size: 110% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Hoopa's Hyperspace Havoc</p>
+        <p class="cardCost"><span class="mana mana-X" aria-label="{X}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Hide on the Ceiling</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile X target artifacts and/or creatures. Return the exiled cards to the battlefield under their owners' control at the beginning of the next end step.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card irenicussvileduplication spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/bU5tKMB.jpeg'); background-size: 100% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Ditto at the Day Care</p>
+        <p class="cardCost"><span class="mana mana-3"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Irenicus's Vile Duplication</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Create a token that's a copy of target creature you control, except the token has flying and it isn't legendary.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card laezelsacrobatics spell white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/hruyLBT.png'); background-size: auto 130%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Fly Away!</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Lae'zel's Acrobatics</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile all nontoken creatures you control, then roll a d20.</p>
+          <p>1—9 | Return those cards to the battlefield under their owner's control at the beginning of the next end step.</p>
+          <p>10—20 | Return those cards to the battlefield under their owner's control, then exile them again. Return those cards to the battlefield under their owner's control at the beginning of the next end step.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card lightninggreaves spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/bDah22x.png'); background-size: auto 130%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Running Shoes</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Lightning Greaves</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact — Equipment</p>
+
+        <div class="cardText">
+          <p>Equipped creature has haste and shroud.</p>
+          <p>Equip <span class="mana mana-0" aria-label="{0}"></span></p>
+          <p><em>"Here, honey! If you're going out on an adventure, wear these Running Shoes. They'll put a zip in your step!" — Mom</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card manasculpt spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/ZJG9M9I.png'); background-size: 110% auto; background-position: right bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Snatch</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Mana Sculpt</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Counter target spell. If you control a Wizard, add an amount of <span class="mana mana-C" aria-label="{C}"></span> equal to the amount of mana spent to cast that spell at the beginning of your next main phase.</p>
+        </div>
+      </div>
+    </div>
+
+   <div class="card mirrorroom fracturedrealm room spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/VFJceIR.jpeg'); background-size: 100% auto; background-position: center"></div>
+
+      <div class="cardWrap">
+        <div class="cardHeader left">
+          <p class="cardCustomName">Cloning Chamber</p>
+          <p class="cardCost"><span class="mana mana-2"></span><span class="mana mana-U"></span><span class="mana mana-U"></span></p>
+        </div>
+
+        <div class="cardHeader right">
+          <p class="cardCustomName">Research Lab</p>
+          <p class="cardCost"><span class="mana mana-5"></span><span class="mana mana-U"></span><span class="mana mana-U"></span></p>
+        </div>
+      </div>
+
+      <div class="cardWrap">
+        <p class="cardRealName left">Mirror Room</p>
+        <p class="cardRealName right">Fractured Realm</p>
+      </div>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment — Room</p>
+
+        <div class="cardWrap">
+          <div class="cardText left">
+            <p>When you unlock this door, create a token that’s a copy of target creature you control, except it’s a Reflection in addition to its other creature types.</p>
+          </div>
+
+          <div class="cardText right">
+            <p>If a triggered ability of a permanent you control triggers, that ability triggers an additional time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mirrormindcrown spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/p7Sn3Mp.png'); background-size: auto 120%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">King's Rock</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span></p>
+      </div>
+
+      <p class="cardRealName">Mirrormind Crown</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact — Equipment</p>
+
+        <div class="cardText">
+          <p>As long as this Equipment is attached to a creature, the first time you would create one or more tokens each turn, you may instead create that many tokens that are copies of equipped creature.</p>
+          <p>Equip <span class="mana mana-2" aria-label="{2}"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card momentofreckoning spell multicolored orzhov">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Moment of Reckoning</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-B" aria-label="{B}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Choose up to four. You may choose the same mode more than once.</p>
+          <p>• Destroy target nonland permanent.</p>
+          <p>• Return target nonland permanent card from your graveyard to the battlefield.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card momentaryblink spell white azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/N1i5o8A.png'); background-size: 100% auto; background-position: center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Eject Button</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Momentary Blink</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile target creature you control, then return it to the battlefield under its owner's control.</p>
+          <p>Flashback <span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card monumentalcorruption spell black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/oniz1L0.jpeg'); background-size: 120% auto; background-position: bottom right"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Agatha's Bargain</p>
+        <p class="cardCost"><span class="mana mana-3"></span><span class="mana mana-B"></span><span class="mana mana-B"></span></p>
+      </div>
+
+      <p class="cardRealName">Monumental Corruption</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Target player draws X cards and loses X life, where X is the number of artifacts you control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card moonlitmeditation spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/zXEuSA3.png'); background-size: 135% auto; background-position: center -8mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">TM31: Mimic</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Moonlit Meditation</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment — Aura</p>
+
+        <div class="cardText">
+          <p>Enchant artifact or creature you control</p>
+          <p>The first time you would create one or more tokens each turn, you may instead create that many tokens that are copies of enchanted permanent.</p>
+          <p><em>The user copies the move last used by the foe. The move can be used for the rest of the battle.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mysticremora spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/XE67DFb.png'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Peaceful Swim</p>
+        <p class="cardCost"><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Mystic Remora</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment</p>
+
+        <div class="cardText">
+          <p>Cumulative upkeep <span class="mana mana-1" aria-label="{1}"></span></p>
+          <p>Whenever an opponent casts a noncreature spell, you may draw a card unless that player pays <span class="mana mana-4" aria-label="{4}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card orzhovsignet spell artifact colorless orzhov">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/WMzCY3d.png'); background-size: 110% auto; background-position: right -2mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Soul Badge</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Orzhov Signet</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-1" aria-label="{1}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-B" aria-label="{B}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card panharmonicon spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/vgOiycM.png'); background-size: 160% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Energy Amplifier</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span></p>
+      </div>
+
+      <p class="cardRealName">Panharmonicon</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p>If an artifact or creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card planarincision spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/aIcsRZd.png'); background-size: 100% auto; background-position: center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Level Ball</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Planar Incision</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Exile target artifact or creature, then return it to the battlefield under its owner's control with a +1/+1 counter on it.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card riseandshine spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/atgOASS.png'); background-size: 110% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Release the Rotom!</p>
+        <p class="cardCost"><span class="mana mana-1"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Rise and Shine</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Target noncreature artifact you control becomes a 0/0 artifact creature. Put four +1/+1 counters on each artifact that became a creature this way.</p>
+          <p>Overload <span class="mana mana-4"></span><span class="mana mana-U"></span><span class="mana mana-U"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card solring spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/v5Xpx5m.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Mega Ring</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span></p>
+      </div>
+
+      <p class="cardRealName">Sol Ring</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span><span class="mana mana-C" aria-label="{C}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card stepthrough spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/Hpelpgr.png'); background-size: 120% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Smell Ya' Later!</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Step Through</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>Return two target creatures to their owners' hands.</p>
+          <p>Wizardcycling <span class="mana mana-2" aria-label="{2}"></span></p>
+          <p><em>"This is my grandson. He's been your rival since you were a baby. …Erm, what is his name again? That's right! I remember now! His name is Buttface!" — Prof. Oak</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card supremeverdict spell multicolored azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/6Fswrd7.png'); background-size: 100% auto; background-position: center top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Sudden Deconstruction</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Supreme Verdict</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Sorcery</p>
+
+        <div class="cardText">
+          <p>This spell can't be countered.</p>
+          <p>Destroy all creatures.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card swordofhearthandhome spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/nTA0W8h.png'); background-size: 120% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Escape Rope and Max Repel</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span></p>
+      </div>
+
+      <p class="cardRealName">Sword of Hearth and Home</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact — Equipment</p>
+
+        <div class="cardText">
+          <p>Equipped creature gets +2/+2 and has protection from green and from white.</p>
+          <p>Whenever equipped creature deals combat damage to a player, exile up to one target creature you own, then search your library for a basic land card. Put both cards onto the battlefield under your control, then shuffle.</p>
+          <p>Equip <span class="mana mana-2" aria-label="{2}"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card swordoftheanimist spell artifact legendary colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/1zsRnjO.png'); background-size: 120% auto; background-position: -8mm bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Explorer's Kit and Town Map</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Sword of the Animist</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Artifact — Equipment</p>
+
+        <div class="cardText">
+          <p>Equipped creature gets +1/+1.</p>
+          <p>Whenever equipped creature attacks, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.</p>
+          <p>Equip <span class="mana mana-2" aria-label="{2}"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card talismanofdominance spell artifact colorless dimir">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/bDaij3n.png'); background-size: 150% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Life Orb, Corviknight</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Talisman of Dominance</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span>.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-U" aria-label="{U}"></span> or <span class="mana mana-B" aria-label="{B}"></span>. This artifact deals 1 damage to you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card talismanofhierarchy spell artifact colorless orzhov">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/SWcptR9.png'); background-size: 150% auto; background-position: -7mm bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Life Orb, Gardevoir</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Talisman of Hierarchy</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span>.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span> or <span class="mana mana-B" aria-label="{B}"></span>. This artifact deals 1 damage to you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card talismanofprogress spell artifact colorless azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/xrYidkU.png'); background-size: 100% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Life Orb, Abra</p>
+        <p class="cardCost"><span class="mana mana-2" aria-label="{2}"></span></p>
+      </div>
+
+      <p class="cardRealName">Talisman of Progress</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span>.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span> or <span class="mana mana-U" aria-label="{U}"></span>. This artifact deals 1 damage to you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tamiyosjournal spell artifact legendary colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/WdPRHK3.png'); background-size: 140% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Elle's Self Help Book</p>
+        <p class="cardCost"><span class="mana mana-5" aria-label="{5}"></span></p>
+      </div>
+
+      <p class="cardRealName">Tamiyo's Journal</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Artifact — Book</p>
+
+        <div class="cardText">
+          <p>At the beginning of your upkeep, investigate.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Sacrifice three Clues: Search your library for a card, put that card into your hand, then shuffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card teleportationcircle spell white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/3dFnerY.png'); background-size: 120% auto; background-position: -7mm -12mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">TM30: Teleport</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-W" aria-label="{W}"></span></p>
+      </div>
+
+      <p class="cardRealName">Teleportation Circle</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment</p>
+
+        <div class="cardText">
+          <p>At the beginning of your end step, exile up to one target artifact or creature you control, then return that card to the battlefield under its owner's control.</p>
+          <p><em>	A psychic move for fleeing from battle instantly.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card thecreationofavacyn saga black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/N69efcT.png'); background-size: 100% auto; background-position: center top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">The Creation of Mewtwo</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-B" aria-label="{B}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+      </div>
+
+      <p class="cardRealName">The Creation of Avacyn</p>
+
+      <div class="cardSagaTextBox">
+        <div class="cardSagaChapterMarker">
+          <p class="chapterMarker">I</p>
+        </div>
+
+        <div class="cardSagaChapterAbility">
+          <p>Search your library for a card, exile it face down, then shuffle.</p>
+        </div>
+
+        <div class="cardSagaChapterMarker">
+          <p class="chapterMarker">II</p>
+        </div>
+
+        <div class="cardSagaChapterAbility">
+          <p>Turn the exiled card face up. If it's a creature card, you lose life equal to its mana value.</p>
+        </div>
+
+        <div class="cardSagaChapterMarker">
+          <p class="chapterMarker">III</p>
+        </div>
+
+        <div class="cardSagaChapterAbility">
+          <p>You may put the exiled card onto the battlefield if it's a creature card. If you don't put it onto the battlefield, put it into its owner's hand.</p>
+        </div>
+      </div>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment — Saga</p>
+      </div>
+    </div>
+
+    <div class="card theeternityelevator spell artifact legendary colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/fYtQEdc.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">The Ultimate Weapon</p>
+        <p class="cardCost"><span class="mana mana-5" aria-label="{5}"></span></p>
+      </div>
+
+      <p class="cardRealName">The Eternity Elevator</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Legendary Artifact — Spacecraft</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span><span class="mana mana-C" aria-label="{C}"></span><span class="mana mana-C" aria-label="{C}"></span>.</p>
+          <p>Station</p>
+          <p>20+ | <span class="mana mana-T" aria-label="{T}"></span>: Add X mana of any one color, where X is the number of charge counters on The Ultimate Weapon.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card thrandynamo spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/toASpKv.png'); background-size: 110% auto; background-position: right bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Electric Generator</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span></p>
+      </div>
+
+      <p class="cardRealName">Thran Dynamo</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span><span class="mana mana-C" aria-label="{C}"></span><span class="mana mana-C" aria-label="{C}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tricksterstalisman spell artifact blue">
+      <div class="cardImage" style="background-image: url(''); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Trickster's Talisman</p>
+        <p class="cardCost"><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact — Equipment</p>
+
+        <div class="cardText">
+          <p>Invoke Duplicity — Equipped creature gets +1/+1 and has &quot;Whenever this creature deals combat damage to a player, you may sacrifice Trickster's Talisman. If you do, create a token that's a copy of this creature.&quot;</p>
+          <p>Equip <span class="mana mana-2" aria-label="{2}"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card vedalkenorrery spell artifact colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/fHiJekA.png'); background-size: 110% auto; background-position: center top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Teleport Panel</p>
+        <p class="cardCost"><span class="mana mana-4" aria-label="{4}"></span></p>
+      </div>
+
+      <p class="cardRealName">Vedalken Orrery</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Artifact</p>
+
+        <div class="cardText">
+          <p>You may cast spells as though they had flash.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card virtueofknowledge adventure spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/CUnIq6a.png'); background-size: 110% auto; background-position: center 9mm; background-repeat: no-repeat; background-color:#000;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Trick-Room Room</p>
+        <p class="cardCost"><span class="mana mana-4"></span><span class="mana mana-U"></span></p>
+      </div>
+
+      <p class="cardRealName">Virtue of Knowledge</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment</p>
+
+        <div class="cardWrap">
+          <div class="cardAdventure vantressvisions adventure blue">
+            <div class="cardAdventureHeader">
+              <p class="cardAdventureCustomName">Z-Trick Room</p>
+              <p class="cardAdventureCost"><span class="mana mana-1"></span><span class="mana mana-U"></span></p>
+              <p class="cardAdventureName">Vantress Visions</p>
+            </div>
+
+            <p class="cardAdventureTypes">Instant — Adventure</p>
+            <p class="cardAdventureText">Copy target activated or triggered ability you control. You may choose new targets for the copy.</p>
+          </div>
+
+          <div class="cardText">
+            <p>If a permanent entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card waterloggedteachings spell mdfc dimir">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/MlgcZOD.png'); background-size: 100% auto; background-position: center;"></div>
+
+      <div class="cardHeader">
+        <div class="mdfcFront">
+          <div class="mdfcFrontTriangle"></div>
+        </div>
+        <p class="cardCustomName">Recovering Documents</p>
+        <p class="cardCost"><span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-U-B" aria-label="{U/B}"></span></p>
+      </div>
+
+      <p class="cardRealName">Waterlogged Teachings</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>Search your library for an instant card or a card with flash, reveal it, put it into your hand, then shuffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card inundatedarchive spell mdfc land dimir">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/2f8E3dl.png'); background-size: 100% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <div class="mdfcBack">
+          <div class="mdfcBackTriangle"></div>
+        </div>
+        <p class="cardCustomName">Sea Mauville</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Inundated Archive</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p>This land enters tapped.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-U" aria-label="{U}"></span> or <span class="mana mana-B" aria-label="{B}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card wizardsretort spell blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/TcgtXEh.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Magic Coat</p>
+        <p class="cardCost"><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-U" aria-label="{U}"></span></p>
+      </div>
+
+      <p class="cardRealName">Wizard's Retort</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Instant</p>
+
+        <div class="cardText">
+          <p>This spell costs <span class="mana mana-1" aria-label="{1}"></span> less to cast if you control a Wizard.</p>
+          <p>Counter target spell.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="landBinder" class="binder">
+
+    <div class="card adagiawindsweptbastion spell land white">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/Oj7PSCi.png'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Research Facility</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Adagia, Windswept Bastion</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land — Planet</p>
+
+        <div class="cardText">
+          <p>This land enters tapped.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span>.</p>
+          <p>Station</p>
+          <p>12+ | <span class="mana mana-3" aria-label="{3}"></span><span class="mana mana-W" aria-label="{W}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: Create a token that's a copy of target artifact or enchantment you control, except it's legendary. Activate only as a sorcery.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card arcanesanctum spell land multicolored esper">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/CVrNKK6.png'); background-size: 140% auto; background-position: right -40mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Board of Directors</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Arcane Sanctum</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p>This land enters tapped.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span>, <span class="mana mana-U" aria-label="{U}"></span>, or <span class="mana mana-B" aria-label="{B}"></span>.</p>
+          <p><em>Elle - CEO, Vaporeon - COO, Giovanni - CFO</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card commandtower spell land multicolored">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/G34atKg.png'); background-size: 100% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Executive Suite</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Command Tower</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add one mana of any color in your commander's color identity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card contaminatedlandscape spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/rRoDQZJ.png'); background-size: 100% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Contaminated Landscape</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span>.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Sacrifice this land: Search your library for a basic Plains, Island, or Swamp card, put it onto the battlefield tapped, then shuffle.</p>
+          <p>Cycling <span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-U" aria-label="{U}"></span><span class="mana mana-B" aria-label="{B}"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card evolvingwilds spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/x0mIu0q.jpeg'); background-size: 105% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Evolving Wilds</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card exoticorchard spell land multicolored">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/tPP2Q32.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Shareholder Symposium</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Exotic Orchard</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add one mana of any color that a land an opponent controls could produce.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fabledpassage spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/G4Fidpb.png'); background-size: 120% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Fabled Passage</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fetidheath spell land multicolored orzhov">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/lm84FN6.png'); background-size: 100% auto; background-position: center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Fetid Heath</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span>.</p>
+          <p><span class="mana mana-W-B" aria-label="{W/B}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-W" aria-label="{W}"></span>, <span class="mana mana-W" aria-label="{W}"></span><span class="mana mana-B" aria-label="{B}"></span>, or <span class="mana mana-B" aria-label="{B}"></span><span class="mana mana-B" aria-label="{B}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card floodedstrand spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/p8T2iuJ.png'); background-size: auto 100%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Flooded Strand</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Pay 1 life, Sacrifice this land: Search your library for a Plains or Island card, put it onto the battlefield, then shuffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card glacialfortress spell land multicolored azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/uktdDJE.png'); background-size: auto 110%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Glacial Fortress</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p>This land enters tapped unless you control a Plains or an Island.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span> or <span class="mana mana-U" aria-label="{U}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card godlessshrine spell land multicolored orzhov">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/ROL1YnG.png'); background-size: auto 120%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Rock Peak Ruins</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Godless Shrine</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land — Plains Swamp</p>
+
+        <div class="cardText">
+          <p>As this land enters, you may pay 2 life. If you don't, it enters tapped.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card hallowedfountain spell land multicolored azorius">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/Qjj3ezF.png'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Iceberg Ruins</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Hallowed Fountain</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land — Plains Island</p>
+
+        <div class="cardText">
+          <p>As this land enters, you may pay 2 life. If you don't, it enters tapped.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card isolatedchapel spell land multicolored orzhov">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/524CXib.png'); background-size: 100% auto; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Isolated Chapel</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p>This land enters tapped unless you control a Plains or a Swamp.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span> or <span class="mana mana-B" aria-label="{B}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card manaconfluence spell land multicolored">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/ufTYNcA.png'); background-size: auto 100%; background-position: -82mm top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Campaign Trail</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Mana Confluence</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Pay 1 life: Add one mana of any color.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card marshflats spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/GV5u3Rv.jpeg'); background-size: auto 100%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Marsh Flats</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Pay 1 life, Sacrifice this land: Search your library for a Plains or Swamp card, put it onto the battlefield, then shuffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card pathofancestry spell land multicolored">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/qAS6eXZ.jpeg'); background-size: auto 100%; background-position: center;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Hometown</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Path of Ancestry</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p>This land enters tapped.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card polluteddelta spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/4uNfaNc.png'); background-size: 103% auto; background-position: right bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Polluted Delta</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card raffinestower spell land multicolored esper">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/VEPoEBu.png'); background-size: 100% auto; background-position: center -37mm;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">The Esper Coalition</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Raffine's Tower</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land — Plains Island Swamp</p>
+
+        <div class="cardText">
+          <p>This land enters tapped.</p>
+          <p>Cycling <span class="mana mana-3" aria-label="{3}"></span></p>
+          <p><em>"Your vote becomes our future.™"</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reliquarytower spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/2PTpaln.png'); background-size: 100% auto; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Server Room</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Reliquary Tower</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p>You have no maximum hand size.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card riptidelaboratory spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/uWF3qZm.png'); background-size: auto 100%; background-position: -23mm top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Human Resources</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Riptide Laboratory</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-C" aria-label="{C}"></span>.</p>
+          <p><span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-U" aria-label="{U}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: Return target Wizard you control to its owner's hand.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shatteredsanctum spell land multicolored orzhov">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/cjS29j0.png'); background-size: 100% auto; background-position: center top"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Shattered Sanctum</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p>This land enters tapped unless you control two or more other lands.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-W" aria-label="{W}"></span> or <span class="mana mana-B" aria-label="{B}"></span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card susursecundivoidaltar spell land black">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/dFdXOUA.png'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Underworld Market</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Susur Secundi, Void Altar</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land — Planet</p>
+
+        <div class="cardText">
+          <p>This land enters tapped.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-B" aria-label="{B}"></span>.</p>
+          <p>Station</p>
+          <p>12+ | <span class="mana mana-1" aria-label="{1}"></span><span class="mana mana-B" aria-label="{B}"></span>, <span class="mana mana-T" aria-label="{T}"></span>, Pay 2 life, Sacrifice a creature: Draw cards equal to the sacrificed creature's power. Activate only as a sorcery.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card terramorphicexpanse spell land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/qQVVOUI.png'); background-size: 115% auto; background-position: center top;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Terramorphic Expanse</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName"></p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land</p>
+
+        <div class="cardText">
+          <p><span class="mana mana-T" aria-label="{T}"></span>, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card uthrostitanicgodcore spell land blue">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/Zm7Ux1d.png'); background-size: auto 100%; background-position: center center"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Power Plant</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Uthros, Titanic Godcore</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land — Planet</p>
+
+        <div class="cardText">
+          <p>This land enters tapped.</p>
+          <p><span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-U" aria-label="{U}"></span>.</p>
+          <p>Station</p>
+          <p>12+ | <span class="mana mana-U" aria-label="{U}"></span>, <span class="mana mana-T" aria-label="{T}"></span>: Add <span class="mana mana-U" aria-label="{U}"></span> for each artifact you control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card waterygrave spell land multicolored dimir">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/DrN2Vfn.png'); background-size: auto 120%; background-position: center bottom;"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Iron Ruins</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Watery Grave</p>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Land — Island Swamp</p>
+
+        <div class="cardText">
+          <p>As this land enters, you may pay 2 life. If you don't, it enters tapped.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card urzassaga saga land colorless">
+      <div class="cardImage" style="background-image: url('https://i.imgur.com/f6jHAv1.png'); background-size: 100% auto; background-position: center bottom"></div>
+
+      <div class="cardHeader">
+        <p class="cardCustomName">Villain's Journey</p>
+        <p class="cardCost"></p>
+      </div>
+
+      <p class="cardRealName">Urza's Saga</p>
+
+      <div class="cardSagaTextBox">
+        <div class="cardSagaChapterMarker">
+          <p class="chapterMarker">I</p>
+        </div>
+
+        <div class="cardSagaChapterAbility">
+          <p>This Saga gains “<span class="mana mana-T"></span>: Add <span class="mana mana-C"></span>.”</p>
+        </div>
+
+        <div class="cardSagaChapterMarker">
+          <p class="chapterMarker">II</p>
+        </div>
+
+        <div class="cardSagaChapterAbility">
+          <p>This Saga gains “<span class="mana mana-2"></span>, <span class="mana mana-T"></span>: Create a 0/0 colorless Construct artifact creature token with ‘This token gets +1/+1 for each artifact you control.’”</p>
+        </div>
+
+        <div class="cardSagaChapterMarker">
+          <p class="chapterMarker">III</p>
+        </div>
+
+        <div class="cardSagaChapterAbility">
+          <p>Search your library for an artifact card with mana cost <span class="mana mana-0"></span> or <span class="mana mana-1"></span>, put it onto the battlefield, then shuffle.</p>
+        </div>
+      </div>
+
+      <div class="cardTextBox">
+        <p class="cardTypes">Enchantment Land — Urza's Saga</p>
+      </div>
+    </div>    
+    
+  </div>
+
+  <div id="tokenBinder" class="binder">
+
+  </div>
+  
+  <button type="button" id="copyUpdatedHTML">
+  Copy HTML
+ </button>
+
+  <script src="Cards.js"></script>
+
+</body>
+</html>

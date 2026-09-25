@@ -1,0 +1,32 @@
+name: Test Print Page Capture
+
+on:
+  workflow_dispatch:
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Capture first print page
+        run: npm run capture-test
+
+      - name: Upload test image
+        uses: actions/upload-artifact@v4
+        with:
+          name: pokemon-proxy-render-test
+          path: test-page.png

@@ -21,8 +21,6 @@ p {
 
 .card {overflow: visible!important;}
 
-.prefix {font-size: 50%}
-
 /* CARD EDITOR */
 
 #cardEditor {
@@ -92,6 +90,11 @@ p {
 .cardCustomName {
   font-size: 1rem;
   line-height: 3.5mm;
+}
+
+.prefix {
+  font-size: .5rem;
+  line-height: 3.1mm;
 }
 
 .cardRealName {
@@ -306,7 +309,7 @@ p {
   align-items: center;
   justify-content: center;
   padding: .5mm 1mm 1mm 1mm;
-  margin-top: -0mm;
+  margin-top: -0.1mm;
   background-position: 0 -6mm, 0 0;
   background-repeat: repeat, no-repeat;
   -webkit-mask-image: linear-gradient(180deg, black 50%, transparent 100%);
@@ -325,6 +328,14 @@ p {
   width: 60%;
   background-color: transparent;
   flex-grow: 2;
+}
+
+.prefix {
+  display: flex;
+  align-items: bottom;
+  height: 2.25mm;
+  background: transparent;
+  padding-right: 1mm;
 }
 
 .cardCost {

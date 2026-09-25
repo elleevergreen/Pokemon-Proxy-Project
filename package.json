@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "capture-test": "node scripts/capture-test.js"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  }
+}

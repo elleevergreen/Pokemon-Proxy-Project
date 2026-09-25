@@ -1,6 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Pixel:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
+@page {
+  size: letter portrait;
+  margin: 0.25in;
+}
+
+.print-container {
+  display: none;
+}
+
+
+@media print {
+  .cardRealName {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+}
+
+
+
+@media print {
+  /* Hide the normal card gallery */
+  body > :not(.print-container) {
+    display: none !important;
+  }
+
+  /* Show our deliberately paginated version */
+  .print-container {
+    display: block !important;
+  }
+
+  .print-page {
+    width: 8.5in;
+    height: 11in;
+
+    display: grid;
+    grid-template-columns: repeat(3, 63mm);
+    grid-template-rows: repeat(3, 88mm);
+
+    justify-content: center;
+    align-content: center;
+
+    break-after: page;
+    page-break-after: always;
+
+    overflow: hidden;
+  }
+
+  .print-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .card {
+    width: 63mm;
+    height: 88mm;
+    break-inside: avoid;
+  }
+
+  .controls,
+  button {
+    display: none !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .card.energy { 
+    display: block!important;
+  }
+}
+
 
 * {
   box-sizing: border-box;
@@ -19,7 +92,7 @@ p {
   padding: 0;
 }
 
-.card {overflow: visible!important;}
+.noprint {display:none!important;}
 
 /* CARD EDITOR */
 
@@ -100,6 +173,7 @@ p {
 .cardRealName {
   font-size: .5rem;
   line-height: 2.5mm;
+  font-weight: 500;
 }
 
 .cardCost {
@@ -109,6 +183,7 @@ p {
 .cardTypes {
   font-size: .75rem;
   line-height: 3mm;
+  font-weight: 600;
 }
 
 .cardText,
@@ -341,7 +416,8 @@ p {
 .cardCost {
   display: flex;
   justify-content: flex-end;
-  height: 7.5mm;
+  align-items: center;
+  height: 4.3mm;
   width: fit-content;
   padding-right: 1mm;
   padding-left: 1mm;
@@ -418,12 +494,12 @@ p {
 
 /* ROOM */
 
-.card.room {
+.card.room .rotator {
   height: 63mm;
   width: 88mm;
   transform-origin: top left;
   transform: rotate(270deg);
-  top: 88mm;
+  margin-top: 88mm;
   margin-right: -25mm;
 }
 
@@ -571,20 +647,11 @@ p {
 
 /* SAGA */
 
-.card.saga {
-  height: 63mm;
-  width: 88mm;
-  transform-origin: top left;
-  transform: rotate(270deg);
-  top: 88mm;
-  margin-right: -25mm;
-}
-
 .saga .cardImage {
   position: absolute;
-  height: calc(100% - 16mm);
+  height: calc(100% - 15mm);
   width: calc(60% - 2mm);
-  top:10mm;
+  top:9mm;
   left: calc(40%);
   background-repeat: no-repeat;
   background-color: #000;
@@ -602,9 +669,8 @@ p {
   margin-top: -3mm;
   padding-top: 3mm;
   padding-right: 1mm;
-  width: calc(40% - 2mm);
-  height: calc(100% - 16mm);
-  background: #666;
+  width: calc(50% - 2mm);
+  height: calc(100% - 15mm);
   background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
 }
 .cardSagaChapterMarker {
@@ -612,7 +678,8 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 15%;
+  width: 20%;
+  background-color: transparent;
 }
 
 .cardSagaChapterAbility {
@@ -621,7 +688,8 @@ p {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 85%;
+  flex-grow: 1;
+  width: 80%;
   padding: 1mm;
   border-bottom-color: rgba(0,0,0,.1);
   border-bottom-style: solid;
@@ -640,7 +708,6 @@ p {
   width: 4.5mm;
   height: 5.5mm;
   color: white;
-  background: #444;
   clip-path: polygon(0% 30%, 0% 70%, 50% 100%, 100% 70%, 100% 30%, 50% 0%);
 }
 
@@ -829,6 +896,12 @@ p {
 .energy {
   border: 3mm #ed2 solid;
 }
+
+.card:nth-child(n+2 of .energy.island),
+.card:nth-child(n+2 of .energy.plains),
+.card:nth-child(n+2 of .energy.swamp)
+{display: none;}
+
 .energy .cardHeaderEnergy {
   display:flex;
   align-items: center;
@@ -1226,6 +1299,14 @@ p {
   border: 1mm ridge rgba(85, 85, 85, 1);
 }
 
+.black .cardSagaTextBox {
+  background: rgba(60, 60, 60, 1);
+}
+
+.black .chapterMarker {
+  background: rgba(45, 45, 45, 1);
+}
+
 
 /* BLUE */
 
@@ -1295,4 +1376,49 @@ p {
 .cardAdventure.colorless {
   background: rgba(230, 230, 230, 1);
   border: 1mm ridge rgba(210, 210, 210, 1);
+}
+
+.colorless .cardSagaTextBox {
+  background: rgba(100, 100, 100, 1);
+}
+
+.colorless .chapterMarker {
+  background: rgba(70, 70, 70, 1);
+}
+
+/* Urza's Saga */
+
+.urzassaga .cardHeader {
+  background:
+    url("http://www.transparenttextures.com/patterns/brushed-alum-dark.png"),
+    rgba(150, 70, 0, 1);
+}
+
+.urzassaga .cardTextBox {
+  background:
+    url("http://www.transparenttextures.com/patterns/brushed-alum-dark.png"),
+    rgba(150, 70, 0, 1);
+}
+
+.urzassaga .cardRealName {
+  background-image:
+    url("http://www.transparenttextures.com/patterns/brushed-alum-dark.png"),
+    linear-gradient(
+      180deg,
+      rgba(150, 70, 0, 1) 0%,
+      rgba(140, 55, 0, 1) 25%
+    );
+}
+
+.urzassaga .cardText {
+  background: rgba(230, 230, 230, 1);
+  border: 1mm ridge rgba(210, 210, 210, 1);
+}
+
+.urzassaga .cardSagaTextBox {
+  background: rgba(105, 60, 10, 1);
+}
+
+.urzassaga .chapterMarker {
+  background: rgba(80, 50, 5, 1);
 }

@@ -384,7 +384,7 @@ p {
   align-items: center;
   justify-content: center;
   padding: .5mm 1mm 1mm 1mm;
-  margin-top: -0.05mm;
+  margin-top: -0.2mm;
   background-position: 0 -6mm, 0 0;
   background-repeat: repeat, no-repeat;
   -webkit-mask-image: linear-gradient(180deg, black 50%, transparent 100%);

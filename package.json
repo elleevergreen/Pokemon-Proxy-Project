@@ -4,6 +4,7 @@
     "capture-test": "node scripts/capture-test.js"
   },
   "dependencies": {
+    "pdf-lib": "^1.17.1",
     "playwright": "^1.55.0"
   }
 }

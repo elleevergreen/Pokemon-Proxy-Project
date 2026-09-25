@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "capture-test": "node scripts/capture-test.js"
+    "capture": "node scripts/capture.js"
   },
   "dependencies": {
     "pdf-lib": "^1.17.1",

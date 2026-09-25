@@ -22,7 +22,7 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Capture first print page
+      - name: Capture cards and build PDF
         run: npm run capture
 
       - name: Upload proxy export
